@@ -1,0 +1,9 @@
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Validation\bin\Debug\netcoreapp1.1\Common.Validation.deps.json
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Validation\bin\Debug\netcoreapp1.1\Common.Validation.dll
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Validation\bin\Debug\netcoreapp1.1\Common.Validation.pdb
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Validation\bin\Debug\netcoreapp1.1\Common.Domain.dll
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Validation\bin\Debug\netcoreapp1.1\Common.Domain.pdb
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Validation\obj\Debug\netcoreapp1.1\Common.Validation.AssemblyInfo.cs
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Validation\obj\Debug\netcoreapp1.1\Common.Validation.dll
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Validation\obj\Debug\netcoreapp1.1\Common.Validation.pdb
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Validation\obj\Debug\netcoreapp1.1\Common.Validation.csprojResolveAssemblyReference.cache

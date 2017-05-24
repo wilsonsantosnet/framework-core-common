@@ -1,0 +1,6 @@
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Domain\bin\Debug\netcoreapp1.1\Common.Domain.deps.json
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Domain\bin\Debug\netcoreapp1.1\Common.Domain.dll
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Domain\bin\Debug\netcoreapp1.1\Common.Domain.pdb
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Domain\obj\Debug\netcoreapp1.1\Common.Domain.AssemblyInfo.cs
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Domain\obj\Debug\netcoreapp1.1\Common.Domain.dll
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Domain\obj\Debug\netcoreapp1.1\Common.Domain.pdb

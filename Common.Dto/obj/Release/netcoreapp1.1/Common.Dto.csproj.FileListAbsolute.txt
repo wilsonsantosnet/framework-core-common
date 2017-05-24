@@ -1,0 +1,9 @@
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Dto\bin\Release\netcoreapp1.1\Common.Dto.deps.json
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Dto\bin\Release\netcoreapp1.1\Common.Dto.dll
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Dto\bin\Release\netcoreapp1.1\Common.Dto.pdb
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Dto\bin\Release\netcoreapp1.1\Common.Domain.dll
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Dto\bin\Release\netcoreapp1.1\Common.Domain.pdb
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Dto\obj\Release\netcoreapp1.1\Common.Dto.csprojResolveAssemblyReference.cache
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Dto\obj\Release\netcoreapp1.1\Common.Dto.AssemblyInfo.cs
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Dto\obj\Release\netcoreapp1.1\Common.Dto.dll
+C:\Projetos\Outros\aloisio\SmartSecretary\Common.Dto\obj\Release\netcoreapp1.1\Common.Dto.pdb
