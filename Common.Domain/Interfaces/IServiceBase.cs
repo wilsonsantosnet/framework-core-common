@@ -25,9 +25,9 @@ namespace Common.Domain.Interfaces
 
         Summary GetSummary(PaginateResult<T> paginateResult);
 
-        ValidationConfirm GetDomainConfirm(FilterBase filters = null);
+        ConfirmEspecificationResult GetDomainConfirm(FilterBase filters = null);
 
-        ValidationWarning GetDomainWarning(FilterBase filters = null);
+        WarningSpecificationResult GetDomainWarning(FilterBase filters = null);
 
         ValidationSpecificationResult GetDomainValidation(FilterBase filters = null);
 

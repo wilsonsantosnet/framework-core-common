@@ -10,9 +10,9 @@ namespace Common.Domain.Interfaces
 
         void BeginTransaction();
 
-        void Commit();
+        int Commit();
 
-        void CommitAsync();
+        Task<int> CommitAsync();
 
     }
 }

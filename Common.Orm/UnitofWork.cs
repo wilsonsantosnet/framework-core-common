@@ -1,6 +1,6 @@
 ﻿using Common.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
-
+using System.Threading.Tasks;
 
 namespace Common.Orm
 {
@@ -20,14 +20,14 @@ namespace Common.Orm
             _disposed = false;
         }
 
-        public void Commit()
+        public int Commit()
         {
-            this._ctx.SaveChanges();
+            return this._ctx.SaveChanges();
         }
 
-        public void CommitAsync()
+        public async Task<int> CommitAsync()
         {
-            this._ctx.SaveChangesAsync();
+            return await this._ctx.SaveChangesAsync();
         }
 
         protected virtual void Dispose(bool disposing)

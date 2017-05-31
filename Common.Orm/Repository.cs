@@ -58,7 +58,7 @@ namespace Common.Orm
             var queryOptimize = this.DefineFieldsGetByFilters(queryFilter, filters);
 
             var totalCount = await this.CountAsync(queryFilter);
-            var paginateResult = await this.ToListAsync(this.Paging(queryOptimize,filters, totalCount));
+            var paginateResult = await this.ToListAsync(this.Paging(queryOptimize, filters, totalCount));
             var queryMapped = this.MapperGetByFiltersToDomainFields(queryFilter, paginateResult, filters.QueryOptimizerBehavior);
 
             return new PaginateResult<T>
@@ -142,12 +142,17 @@ namespace Common.Orm
 
         private IQueryable<T2> Paging<T2>(IQueryable<T2> source, FilterBase filter, int totalCount)
         {
-            var pageIndex = filter.PageIndex.IsMoreThanZero() ? filter.PageIndex - 1 : 0;
-            var pageSize = filter.PageSize;
-            var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
+            if (filter.IsPagination)
+            {
+                var pageIndex = filter.PageIndex.IsMoreThanZero() ? filter.PageIndex - 1 : 0;
+                var pageSize = filter.PageSize;
+                var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
 
-            return source.Skip(filter.PageSkipped).Take(pageSize);
-            
+                return source.Skip(filter.PageSkipped).Take(pageSize);
+            }
+
+            return source;
+
         }
 
 

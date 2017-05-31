@@ -26,14 +26,14 @@ namespace Common.Domain.Base
             _uow.BeginTransaction();
         }
 
-        public void Commit()
+        public int Commit()
         {
-            _uow.Commit();
+            return _uow.Commit();
         }
 
-        public void CommitAsync()
+        public async Task<int> CommitAsync()
         {
-            _uow.CommitAsync();
+            return await _uow.CommitAsync();
         }
 
         protected virtual void AddTagCache(string filterKey, string group)
@@ -58,14 +58,14 @@ namespace Common.Domain.Base
             return resultDto;
         }
 
-        public virtual void Remove(TD entity)
+        public virtual async Task<int> Remove(TD entity)
         {
             this.BeginTransaction();
 
             var model = this.MapperDtoToDomainForDelete(entity);
             this._serviceBase.Remove(model);
 
-            this.CommitAsync();
+            return await this.CommitAsync();
         }
 
         public virtual async Task<IEnumerable<TD>> Save(IEnumerable<TD> entitys)
@@ -80,7 +80,7 @@ namespace Common.Domain.Base
             if (!DomainIsValid())
                 return resultDto;
 
-            this.CommitAsync();
+            await this.CommitAsync();
             return resultDto;
         }
         public virtual async Task<TD> SavePartial(TD entity,  bool questionToContinue = false) 
@@ -100,7 +100,7 @@ namespace Common.Domain.Base
             if (!DomainIsValid())
                 return resultDto;
 
-            this.CommitAsync();
+            await this.CommitAsync();
             return resultDto;
 
         }
@@ -118,7 +118,7 @@ namespace Common.Domain.Base
             if (!DomainIsValid())
                 return resultDto;
 
-            this.CommitAsync();
+            await this.CommitAsync();
             return resultDto;
         }
 
@@ -205,12 +205,12 @@ namespace Common.Domain.Base
         }
 
 
-        public ValidationConfirm GetDomainConfirm(FilterBase filters = null)
+        public ConfirmEspecificationResult GetDomainConfirm(FilterBase filters = null)
         {
             return this._serviceBase.GetDomainConfirm(filters);
         }
 
-        public ValidationWarning GetDomainWarning(FilterBase filters = null)
+        public WarningSpecificationResult GetDomainWarning(FilterBase filters = null)
         {
             return this._serviceBase.GetDomainWarning(filters);
         }

@@ -7508,10 +7508,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\Outros\\aloisio\\SmartSecretary\\Common.Validation\\Common.Validation.csproj",
+      "projectUniqueName": "C:\\Projetos\\Outros\\aloisio\\Common.Validation\\Common.Validation.csproj",
       "projectName": "Common.Validation",
-      "projectPath": "C:\\Projetos\\Outros\\aloisio\\SmartSecretary\\Common.Validation\\Common.Validation.csproj",
-      "outputPath": "C:\\Projetos\\Outros\\aloisio\\SmartSecretary\\Common.Validation\\obj\\",
+      "projectPath": "C:\\Projetos\\Outros\\aloisio\\Common.Validation\\Common.Validation.csproj",
+      "outputPath": "C:\\Projetos\\Outros\\aloisio\\Common.Validation\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
@@ -7519,8 +7519,8 @@
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "C:\\Projetos\\Outros\\aloisio\\SmartSecretary\\Common.Domain\\Common.Domain.csproj": {
-              "projectPath": "C:\\Projetos\\Outros\\aloisio\\SmartSecretary\\Common.Domain\\Common.Domain.csproj"
+            "C:\\Projetos\\Outros\\aloisio\\Common.Domain\\Common.Domain.csproj": {
+              "projectPath": "C:\\Projetos\\Outros\\aloisio\\Common.Domain\\Common.Domain.csproj"
             }
           }
         }

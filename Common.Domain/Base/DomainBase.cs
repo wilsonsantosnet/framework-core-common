@@ -10,19 +10,19 @@ namespace Common.Domain.Base
     {
         protected ValidationSpecificationResult _validationResult;
 
-        protected ValidationConfirm _validationConfirm;
+        protected ConfirmEspecificationResult _validationConfirm;
 
-        protected ValidationWarning _validationWarning;
+        protected WarningSpecificationResult _validationWarning;
 
         public virtual ValidationSpecificationResult GetDomainValidation(FilterBase filters = null)
         {
             return this._validationResult;
         }
-        public virtual ValidationConfirm GetDomainConfirm(FilterBase filters = null)
+        public virtual ConfirmEspecificationResult GetDomainConfirm(FilterBase filters = null)
         {
             return this._validationConfirm;
         }
-        public virtual ValidationWarning GetDomainWarning(FilterBase filters = null)
+        public virtual WarningSpecificationResult GetDomainWarning(FilterBase filters = null)
         {
             return this._validationWarning;
         }

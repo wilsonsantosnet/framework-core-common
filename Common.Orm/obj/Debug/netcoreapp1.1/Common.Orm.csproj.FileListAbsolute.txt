@@ -7,3 +7,12 @@ C:\Projetos\Outros\aloisio\SmartSecretary\Common.Orm\obj\Debug\netcoreapp1.1\Com
 C:\Projetos\Outros\aloisio\SmartSecretary\Common.Orm\obj\Debug\netcoreapp1.1\Common.Orm.dll
 C:\Projetos\Outros\aloisio\SmartSecretary\Common.Orm\obj\Debug\netcoreapp1.1\Common.Orm.pdb
 C:\Projetos\Outros\aloisio\SmartSecretary\Common.Orm\obj\Debug\netcoreapp1.1\Common.Orm.csprojResolveAssemblyReference.cache
+C:\Projetos\Outros\aloisio\Common.Orm\bin\Debug\netcoreapp1.1\Common.Orm.deps.json
+C:\Projetos\Outros\aloisio\Common.Orm\bin\Debug\netcoreapp1.1\Common.Orm.dll
+C:\Projetos\Outros\aloisio\Common.Orm\bin\Debug\netcoreapp1.1\Common.Orm.pdb
+C:\Projetos\Outros\aloisio\Common.Orm\bin\Debug\netcoreapp1.1\Common.Domain.dll
+C:\Projetos\Outros\aloisio\Common.Orm\bin\Debug\netcoreapp1.1\Common.Domain.pdb
+C:\Projetos\Outros\aloisio\Common.Orm\obj\Debug\netcoreapp1.1\Common.Orm.csprojResolveAssemblyReference.cache
+C:\Projetos\Outros\aloisio\Common.Orm\obj\Debug\netcoreapp1.1\Common.Orm.AssemblyInfo.cs
+C:\Projetos\Outros\aloisio\Common.Orm\obj\Debug\netcoreapp1.1\Common.Orm.dll
+C:\Projetos\Outros\aloisio\Common.Orm\obj\Debug\netcoreapp1.1\Common.Orm.pdb

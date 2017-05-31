@@ -12,9 +12,9 @@ namespace Common.Domain.Base
 
         protected ValidationSpecificationResult _validationResult;
 
-        protected ValidationConfirm _validationConfirm;
+        protected ConfirmEspecificationResult _validationConfirm;
 
-        protected ValidationWarning _validationWarning;
+        protected WarningSpecificationResult _validationWarning;
 
         public ServiceBase(ICache cache)
         {

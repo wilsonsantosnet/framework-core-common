@@ -7494,10 +7494,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\Outros\\aloisio\\SmartSecretary\\Common.Domain\\Common.Domain.csproj",
+      "projectUniqueName": "C:\\Projetos\\Outros\\aloisio\\Common.Domain\\Common.Domain.csproj",
       "projectName": "Common.Domain",
-      "projectPath": "C:\\Projetos\\Outros\\aloisio\\SmartSecretary\\Common.Domain\\Common.Domain.csproj",
-      "outputPath": "C:\\Projetos\\Outros\\aloisio\\SmartSecretary\\Common.Domain\\obj\\",
+      "projectPath": "C:\\Projetos\\Outros\\aloisio\\Common.Domain\\Common.Domain.csproj",
+      "outputPath": "C:\\Projetos\\Outros\\aloisio\\Common.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"

@@ -7730,10 +7730,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\Outros\\aloisio\\SmartSecretary\\Common.Cache\\Common.Cache.csproj",
+      "projectUniqueName": "C:\\Projetos\\Outros\\aloisio\\Common.Cache\\Common.Cache.csproj",
       "projectName": "Common.Cache",
-      "projectPath": "C:\\Projetos\\Outros\\aloisio\\SmartSecretary\\Common.Cache\\Common.Cache.csproj",
-      "outputPath": "C:\\Projetos\\Outros\\aloisio\\SmartSecretary\\Common.Cache\\obj\\",
+      "projectPath": "C:\\Projetos\\Outros\\aloisio\\Common.Cache\\Common.Cache.csproj",
+      "outputPath": "C:\\Projetos\\Outros\\aloisio\\Common.Cache\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
@@ -7741,8 +7741,8 @@
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "C:\\Projetos\\Outros\\aloisio\\SmartSecretary\\Common.Domain\\Common.Domain.csproj": {
-              "projectPath": "C:\\Projetos\\Outros\\aloisio\\SmartSecretary\\Common.Domain\\Common.Domain.csproj"
+            "C:\\Projetos\\Outros\\aloisio\\Common.Domain\\Common.Domain.csproj": {
+              "projectPath": "C:\\Projetos\\Outros\\aloisio\\Common.Domain\\Common.Domain.csproj"
             }
           }
         }

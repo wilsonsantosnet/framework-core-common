@@ -9008,10 +9008,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\Outros\\aloisio\\SmartSecretary\\Common.API\\Common.API.csproj",
+      "projectUniqueName": "C:\\Projetos\\Outros\\aloisio\\Common.API\\Common.API.csproj",
       "projectName": "Common.API",
-      "projectPath": "C:\\Projetos\\Outros\\aloisio\\SmartSecretary\\Common.API\\Common.API.csproj",
-      "outputPath": "C:\\Projetos\\Outros\\aloisio\\SmartSecretary\\Common.API\\obj\\",
+      "projectPath": "C:\\Projetos\\Outros\\aloisio\\Common.API\\Common.API.csproj",
+      "outputPath": "C:\\Projetos\\Outros\\aloisio\\Common.API\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
@@ -9019,8 +9019,8 @@
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "C:\\Projetos\\Outros\\aloisio\\SmartSecretary\\Common.Domain\\Common.Domain.csproj": {
-              "projectPath": "C:\\Projetos\\Outros\\aloisio\\SmartSecretary\\Common.Domain\\Common.Domain.csproj"
+            "C:\\Projetos\\Outros\\aloisio\\Common.Domain\\Common.Domain.csproj": {
+              "projectPath": "C:\\Projetos\\Outros\\aloisio\\Common.Domain\\Common.Domain.csproj"
             }
           }
         }

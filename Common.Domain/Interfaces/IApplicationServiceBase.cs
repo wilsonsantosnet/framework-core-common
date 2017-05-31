@@ -19,11 +19,11 @@ namespace Common.Domain.Interfaces
 
         Task<IEnumerable<T>> Save(IEnumerable<T> entitys);
 
-        void Remove(T entity);
+        Task<int> Remove(T entity);
 
-        ValidationWarning GetDomainWarning(FilterBase filters = null);
+        WarningSpecificationResult GetDomainWarning(FilterBase filters = null);
 
-        ValidationConfirm GetDomainConfirm(FilterBase filters = null);
+        ConfirmEspecificationResult GetDomainConfirm(FilterBase filters = null);
 
         ValidationSpecificationResult GetDomainValidation(FilterBase filters = null);
 
