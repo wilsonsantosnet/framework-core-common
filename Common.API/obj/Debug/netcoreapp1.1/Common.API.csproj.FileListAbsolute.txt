@@ -16,3 +16,12 @@ C:\Projetos\Outros\aloisio\Common.API\obj\Debug\netcoreapp1.1\Common.API.csprojR
 C:\Projetos\Outros\aloisio\Common.API\obj\Debug\netcoreapp1.1\Common.API.AssemblyInfo.cs
 C:\Projetos\Outros\aloisio\Common.API\obj\Debug\netcoreapp1.1\Common.API.dll
 C:\Projetos\Outros\aloisio\Common.API\obj\Debug\netcoreapp1.1\Common.API.pdb
+C:\Pessoal\framework-core-common\Common.API\bin\Debug\netcoreapp1.1\Common.API.deps.json
+C:\Pessoal\framework-core-common\Common.API\bin\Debug\netcoreapp1.1\Common.API.dll
+C:\Pessoal\framework-core-common\Common.API\bin\Debug\netcoreapp1.1\Common.API.pdb
+C:\Pessoal\framework-core-common\Common.API\bin\Debug\netcoreapp1.1\Common.Domain.dll
+C:\Pessoal\framework-core-common\Common.API\bin\Debug\netcoreapp1.1\Common.Domain.pdb
+C:\Pessoal\framework-core-common\Common.API\obj\Debug\netcoreapp1.1\Common.API.csprojResolveAssemblyReference.cache
+C:\Pessoal\framework-core-common\Common.API\obj\Debug\netcoreapp1.1\Common.API.AssemblyInfo.cs
+C:\Pessoal\framework-core-common\Common.API\obj\Debug\netcoreapp1.1\Common.API.dll
+C:\Pessoal\framework-core-common\Common.API\obj\Debug\netcoreapp1.1\Common.API.pdb

@@ -9,25 +9,25 @@ namespace Common.Domain.Interfaces
 {
     public interface IServiceBase<T,TF>
     {
-        Task<T> GetOne(TF filters);
+        T GetOne(TF filters);
 
-        Task<IEnumerable<T>> GetByFilters(TF filters);
+        IEnumerable<T> GetByFilters(TF filters);
 
-        Task<PaginateResult<T>> GetByFiltersPaging(TF filters);
+        PaginateResult<T> GetByFiltersPaging(TF filters);
 
-        Task<T> SavePartial(T entity,  bool questionToContinue = false);
+        T SavePartial(T entity,  bool questionToContinue = false);
 
-        Task<T> Save(T entity, bool questionToContinue = false);
+        T Save(T entity, bool questionToContinue = false);
 
-        Task<IEnumerable<T>> Save(IEnumerable<T> entitys);
+        IEnumerable<T> Save(IEnumerable<T> entitys);
 
         void Remove(T entity);
 
         Summary GetSummary(PaginateResult<T> paginateResult);
 
-        ConfirmEspecificationResult GetDomainConfirm(FilterBase filters = null);
+        ValidationConfirm GetDomainConfirm(FilterBase filters = null);
 
-        WarningSpecificationResult GetDomainWarning(FilterBase filters = null);
+        ValidationWarning GetDomainWarning(FilterBase filters = null);
 
         ValidationSpecificationResult GetDomainValidation(FilterBase filters = null);
 

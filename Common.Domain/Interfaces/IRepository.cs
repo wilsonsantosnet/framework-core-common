@@ -14,14 +14,7 @@ namespace Common.Domain.Interfaces
         T Add(T entity);
         T Update(T entity);
         void Remove(T entity);
-        Task<PaginateResult<T>> PagingAndDefineFields(FilterBase filters, IQueryable<T> queryFilter);
-
-        Task<List<T2>> ToListAsync<T2>(IQueryable<T2> source);
-        Task<int> CountAsync<T2>(IQueryable<T2> source);
-        Task<decimal> SumAsync<T2>(IQueryable<T2> source, Expression<Func<T2, decimal>> selector);
-        Task<T2> SingleOrDefaultAsync<T2>(IQueryable<T2> source);
-        Task<T2> FirstOrDefaultAsync<T2>(IQueryable<T2> source);
-        Task<int> CommitAsync();
+        PaginateResult<T> PagingAndDefineFields(FilterBase filters, IQueryable<T> queryFilter);
 
     }
 }

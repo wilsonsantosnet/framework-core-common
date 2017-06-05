@@ -17,8 +17,8 @@ namespace Common.API
         public HttpStatusCode StatusCode { get; set; }
         public Summary Summary { get; set; }
         public ValidationSpecificationResult Result { get; set; }
-        public WarningSpecificationResult Warning { get; set; }
-        public ConfirmEspecificationResult Confirm { get; set; }
+        public ValidationWarning Warning { get; set; }
+        public ValidationConfirm Confirm { get; set; }
 
     }
     public class HttpResult<T> : HttpResult where T : class
@@ -126,15 +126,6 @@ namespace Common.API
                 IsValid = false
             };
             return this;
-        }
-        public ObjectResult ReturnCustomResponse()
-        {
-            this.Success();
-            return new ObjectResult(this)
-            {
-                StatusCode = (int)this.StatusCode
-            };
-
         }
         public ObjectResult ReturnCustomResponse(IEnumerable<T> searchResult, FilterBase filter = null)
         {

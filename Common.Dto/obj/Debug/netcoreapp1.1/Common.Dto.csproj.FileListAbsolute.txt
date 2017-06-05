@@ -16,3 +16,12 @@ C:\Projetos\Outros\aloisio\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.csprojR
 C:\Projetos\Outros\aloisio\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.AssemblyInfo.cs
 C:\Projetos\Outros\aloisio\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.dll
 C:\Projetos\Outros\aloisio\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.pdb
+C:\Pessoal\framework-core-common\Common.Dto\bin\Debug\netcoreapp1.1\Common.Dto.deps.json
+C:\Pessoal\framework-core-common\Common.Dto\bin\Debug\netcoreapp1.1\Common.Dto.dll
+C:\Pessoal\framework-core-common\Common.Dto\bin\Debug\netcoreapp1.1\Common.Dto.pdb
+C:\Pessoal\framework-core-common\Common.Dto\bin\Debug\netcoreapp1.1\Common.Domain.dll
+C:\Pessoal\framework-core-common\Common.Dto\bin\Debug\netcoreapp1.1\Common.Domain.pdb
+C:\Pessoal\framework-core-common\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.csprojResolveAssemblyReference.cache
+C:\Pessoal\framework-core-common\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.AssemblyInfo.cs
+C:\Pessoal\framework-core-common\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.dll
+C:\Pessoal\framework-core-common\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.pdb

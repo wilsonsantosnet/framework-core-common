@@ -3,11 +3,10 @@ using Common.Domain.Interfaces;
 using Common.Domain.Model;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Common.Domain.Base
 {
-    public abstract class ApplicationServiceBase<T, TD, TF> 
+    public class ApplicationServiceBase<T, TD, TF> 
         where TF : class
         where TD : class
     {
@@ -26,14 +25,9 @@ namespace Common.Domain.Base
             _uow.BeginTransaction();
         }
 
-        public int Commit()
+        public void Commit()
         {
-            return _uow.Commit();
-        }
-
-        public async Task<int> CommitAsync()
-        {
-            return await _uow.CommitAsync();
+            _uow.Commit();
         }
 
         protected virtual void AddTagCache(string filterKey, string group)
@@ -44,48 +38,48 @@ namespace Common.Domain.Base
             this._cache.Add(group, tags);
         }
 
-        public virtual async Task<SearchResult<TD>> GetByFilters(FilterBase filters)
+        public virtual SearchResult<TD> GetByFilters(FilterBase filters)
         {
             var result = default(SearchResult<TD>);
-            result = await this.GetByFiltersWithCache(filters, MapperDomainToResult<TD>);
+            result = this.GetByFiltersWithCache(filters, MapperDomainToResult<TD>);
             return result;
         }
 
-        public virtual async Task<TD> GetOne(FilterBase filters)
+        public virtual TD GetOne(FilterBase filters)
         {
-            var resultDomain = await this._serviceBase.GetOne(filters as TF);
+            var resultDomain = this._serviceBase.GetOne(filters as TF);
             var resultDto = this.MapperDomainToDto<TD>(resultDomain);
             return resultDto;
         }
 
-        public virtual async Task<int> Remove(TD entity)
+        public virtual void Remove(TD entity)
         {
             this.BeginTransaction();
 
             var model = this.MapperDtoToDomainForDelete(entity);
             this._serviceBase.Remove(model);
 
-            return await this.CommitAsync();
+            this.Commit();
         }
 
-        public virtual async Task<IEnumerable<TD>> Save(IEnumerable<TD> entitys)
+        public virtual IEnumerable<TD> Save(IEnumerable<TD> entitys)
         {
             var entitysChanged = this.MapperDtoToDomain(entitys);
 
             this.BeginTransaction();
 
-            var resultDomain = await this._serviceBase.Save(entitysChanged);
+            var resultDomain = this._serviceBase.Save(entitysChanged);
             var resultDto = this.MapperDomainToDto<TD>(resultDomain);
 
-            if (!DomainIsValid())
+            if (this._serviceBase.GetDomainValidation().IsValid)
                 return resultDto;
 
-            await this.CommitAsync();
+            this.Commit();
             return resultDto;
         }
-        public virtual async Task<TD> SavePartial(TD entity,  bool questionToContinue = false) 
+        public virtual TD SavePartial(TD entity,  bool questionToContinue = false) 
         {
-            var entityChanged = await this.AlterDomainWithDto(entity);
+            var entityChanged = this.AlterDomainWithDto(entity);
             if (entityChanged.IsNull())
             {
                 this._serviceBase.AddDomainValidation("Não econtrado");
@@ -94,31 +88,31 @@ namespace Common.Domain.Base
 
             this.BeginTransaction();
 
-            var resultDomain = await this._serviceBase.SavePartial(entityChanged, questionToContinue);
+            var resultDomain = this._serviceBase.SavePartial(entityChanged, questionToContinue);
             var resultDto = this.MapperDomainToDto<TD>(resultDomain);
 
             if (!DomainIsValid())
                 return resultDto;
 
-            await this.CommitAsync();
+            this.Commit();
             return resultDto;
 
         }
 
 
-        public virtual async Task<TD> Save(TD entity, bool questionToContinue = false)
+        public virtual TD Save(TD entity, bool questionToContinue = false)
         {
             var model = this.MapperDtoToDomain(entity);
 
             this.BeginTransaction();
 
-            var resultDomain = await this._serviceBase.Save(model, questionToContinue);
+            var resultDomain = this._serviceBase.Save(model, questionToContinue);
             var resultDto = this.MapperDomainToDto<TD>(resultDomain);
 
             if (!DomainIsValid())
                 return resultDto;
 
-            await this.CommitAsync();
+            this.Commit();
             return resultDto;
         }
 
@@ -134,14 +128,14 @@ namespace Common.Domain.Base
             return this._serviceBase.GetDomainValidation().IsValid;
         }
 
-        protected virtual async Task<SearchResult<TD>> GetByFiltersWithCache(FilterBase filter, Func<FilterBase, PaginateResult<T>, IEnumerable<TD>> MapperDomainToDto)
+        protected virtual SearchResult<TD> GetByFiltersWithCache(FilterBase filter, Func<FilterBase, PaginateResult<T>, IEnumerable<TD>> MapperDomainToDto)
         {
             var filterKey = filter.CompositeKey();
             if (filter.ByCache)
                 if (this._cache.ExistsKey(filterKey))
                     return (SearchResult<TD>)this._cache.Get(filterKey);
 
-            var paginateResultOptimize = await this._serviceBase.GetByFiltersPaging(filter as TF);
+            var paginateResultOptimize = this._serviceBase.GetByFiltersPaging(filter as TF);
             var result = MapperDomainToDto(filter, paginateResultOptimize);
             var summary = this.Summary(paginateResultOptimize);
 
@@ -179,7 +173,10 @@ namespace Common.Domain.Base
             return result;
         }
 
-        protected abstract Task<T> AlterDomainWithDto<TDS>(TDS dto) where TDS : class;
+        protected virtual T AlterDomainWithDto<TDS>(TDS dto) where TDS : class
+        {
+            return this.MapperDtoToDomain(dto);
+        }
 
         protected virtual TDS MapperDomainToDto<TDS>(T model) where TDS : class
         {
@@ -205,12 +202,12 @@ namespace Common.Domain.Base
         }
 
 
-        public ConfirmEspecificationResult GetDomainConfirm(FilterBase filters = null)
+        public ValidationConfirm GetDomainConfirm(FilterBase filters = null)
         {
             return this._serviceBase.GetDomainConfirm(filters);
         }
 
-        public WarningSpecificationResult GetDomainWarning(FilterBase filters = null)
+        public ValidationWarning GetDomainWarning(FilterBase filters = null)
         {
             return this._serviceBase.GetDomainWarning(filters);
         }

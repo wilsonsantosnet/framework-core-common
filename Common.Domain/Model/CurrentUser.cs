@@ -12,6 +12,8 @@ namespace Common.Domain.Model
     {
  
         private string _token;
+
+
      
         public void Init(string token, Dictionary<string, object> claims)
         {
@@ -35,22 +37,16 @@ namespace Common.Domain.Model
             return this._claims;
         }
 
-        public bool IsSubscriber()
+        public bool ExistsSubscriberId()
         {
-            return this._claims
-                .Where(_ => _.Key.ToLower() == "role")
-                .Where(_ => _.Value.ToString() == "subscriber").IsAny();
+            return this._claims.Where(_ => _.Key.ToLower() == "sub").IsAny();
         }
-        public TS GetSubjectId<TS>()
+        public TS GetSubscriberId<TS>()
         {
-            if (this.IsSubscriber())
+            if (this.ExistsSubscriberId())
             {
-                var subjectId = this._claims
-                    .Where(_ => _.Key.ToLower() == "sub")
-                    .SingleOrDefault()
-                    .Value;
-
-                return (TS)Convert.ChangeType(subjectId, typeof(TS));
+                var subscriberId = this._claims.Where(_ => _.Key.ToLower() == "sub").SingleOrDefault().Value;
+                return (TS)Convert.ChangeType(subscriberId, typeof(TS));
             }
             return default(TS);
         }
