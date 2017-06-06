@@ -9,21 +9,21 @@ namespace Common.Domain.Interfaces
 {
     public interface IApplicationServiceBase<T>
     {
-        T GetOne(FilterBase filters);
+        Task<T> GetOne(FilterBase filters);
 
-        SearchResult<T> GetByFilters(FilterBase filters);
+        Task<SearchResult<T>> GetByFilters(FilterBase filters);
 
-        T Save(T entity, bool questionToContinue = false);
+        Task<T> Save(T entity, bool questionToContinue = false);
 
-        T SavePartial(T entity, bool questionToContinue = false);
+        Task<T> SavePartial(T entity, bool questionToContinue = false);
 
-        IEnumerable<T> Save(IEnumerable<T> entitys);
+        Task<IEnumerable<T>> Save(IEnumerable<T> entitys);
 
-        void Remove(T entity);
+        Task<int> Remove(T entity);
 
-        ValidationWarning GetDomainWarning(FilterBase filters = null);
+        WarningSpecificationResult GetDomainWarning(FilterBase filters = null);
 
-        ValidationConfirm GetDomainConfirm(FilterBase filters = null);
+        ConfirmEspecificationResult GetDomainConfirm(FilterBase filters = null);
 
         ValidationSpecificationResult GetDomainValidation(FilterBase filters = null);
 

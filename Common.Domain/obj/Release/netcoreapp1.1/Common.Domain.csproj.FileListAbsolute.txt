@@ -12,3 +12,10 @@ C:\Projetos\Outros\aloisio\Common.Domain\obj\Release\netcoreapp1.1\Common.Domain
 C:\Projetos\Outros\aloisio\Common.Domain\obj\Release\netcoreapp1.1\Common.Domain.AssemblyInfo.cs
 C:\Projetos\Outros\aloisio\Common.Domain\obj\Release\netcoreapp1.1\Common.Domain.dll
 C:\Projetos\Outros\aloisio\Common.Domain\obj\Release\netcoreapp1.1\Common.Domain.pdb
+C:\Projetos\Common-Core\Main\Common.Domain\bin\Release\netcoreapp1.1\Common.Domain.deps.json
+C:\Projetos\Common-Core\Main\Common.Domain\bin\Release\netcoreapp1.1\Common.Domain.dll
+C:\Projetos\Common-Core\Main\Common.Domain\bin\Release\netcoreapp1.1\Common.Domain.pdb
+C:\Projetos\Common-Core\Main\Common.Domain\obj\Release\netcoreapp1.1\Common.Domain.csprojResolveAssemblyReference.cache
+C:\Projetos\Common-Core\Main\Common.Domain\obj\Release\netcoreapp1.1\Common.Domain.AssemblyInfo.cs
+C:\Projetos\Common-Core\Main\Common.Domain\obj\Release\netcoreapp1.1\Common.Domain.dll
+C:\Projetos\Common-Core\Main\Common.Domain\obj\Release\netcoreapp1.1\Common.Domain.pdb

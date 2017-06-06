@@ -23,6 +23,7 @@ namespace Common.Domain.Base
             }
         }
 
+        public string AttributeBehavior { get; set; }
         public FilterBehavior FilterBehavior { get; set; }
         public bool IsPagination { get; set; }
         public string QueryOptimizerBehavior { get; set; }

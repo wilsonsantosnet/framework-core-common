@@ -1,6 +1,7 @@
 ﻿using Common.Domain.Interfaces;
 using Common.Domain.Model;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Common.Domain.Base
 {
@@ -11,30 +12,30 @@ namespace Common.Domain.Base
 
         protected ValidationSpecificationResult _validationResult;
 
-        protected ValidationConfirm _validationConfirm;
+        protected ConfirmEspecificationResult _validationConfirm;
 
-        protected ValidationWarning _validationWarning;
+        protected WarningSpecificationResult _validationWarning;
 
         public ServiceBase(ICache cache)
         {
             this._cacheHelper = new CacheHelper(cache);
         }
 
-        public virtual IEnumerable<T> Save(IEnumerable<T> entitys)
+        public virtual async Task<IEnumerable<T>> Save(IEnumerable<T> entitys)
         {
             var savedAll = new List<T>();
             foreach (var item in entitys)
             {
-                var saved = this.Save(item);
+                var saved = await this.Save(item);
                 savedAll.Add(saved);
             }
             return savedAll;
 
         }
 
-        public abstract T Save(T entity, bool questionToContinue = true);
+        public abstract Task<T> Save(T entity, bool questionToContinue = true);
 
-        public abstract T SavePartial(T entity, bool questionToContinue = true);
+        public abstract Task<T> SavePartial(T entity, bool questionToContinue = true);
 
         protected abstract T SaveWithValidation(T entity, T oldEntity);
 

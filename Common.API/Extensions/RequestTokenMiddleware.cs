@@ -36,17 +36,17 @@ namespace Common.API.Extensions
                     {
                         //var claims = await GetClaimsFromServer(configSettingsBase, tokenClear);
                         var claims = GetClaimsFromUserPrincipal(context);
-                        //var claims2 = GetClaimsFromReadToken(tokenClear, jwt);
+                        //var claims = GetClaimsFromReadToken(tokenClear, jwt);
 
                         var claimsDictonary = new Dictionary<string, object>();
                         if (claims.IsAny())
                         {
                             foreach (var item in claims
                                 .Select(_ => new KeyValuePair<string, object>(_.Type, _.Value)))
-                            {
-                                if (!claimsDictonary.ContainsKey(item.Key))
-                                    claimsDictonary.Add(item.Key, item.Value);
-                            }
+                                {
+                                    if (!claimsDictonary.ContainsKey(item.Key))
+                                        claimsDictonary.Add(item.Key, item.Value);
+                                }
 
                         }
 

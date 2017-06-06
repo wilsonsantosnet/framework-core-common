@@ -20,7 +20,16 @@ namespace Common.Domain
         public static DateTime ToTimeZone(this DateTime now)
         {
             return TimeZoneInfo.ConvertTime(now, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
-            //return now.AddHours(-2);
+        }
+
+        public static DateTime TodayZeroHours(this DateTime date)
+        {
+            return Convert.ToDateTime(date.ToString("dd/MM/yyyy"));
+        }
+
+        public static DateTime TomorrowZeroHours(this DateTime date)
+        {
+            return date.TodayZeroHours().AddDays(1);
         }
 
 
