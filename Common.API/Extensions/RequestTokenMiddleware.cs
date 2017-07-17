@@ -34,14 +34,13 @@ namespace Common.API.Extensions
                 {
                     try
                     {
-                        //var claims = await getClaimsFromServer(configSettingsBase, tokenClear);
+                        //var claims = await GetClaimsFromServer(configSettingsBase, tokenClear);
                         var claims = GetClaimsFromUserPrincipal(context);
                         //var claims = GetClaimsFromReadToken(tokenClear, jwt);
 
                         var claimsDictonary = new Dictionary<string, object>();
                         if (claims.IsAny())
                         {
-
                             foreach (var item in claims
                                 .Select(_ => new KeyValuePair<string, object>(_.Type, _.Value)))
                                 {
@@ -77,7 +76,7 @@ namespace Common.API.Extensions
             return claims;
         }
 
-        private static async Task<IEnumerable<Claim>> getClaimsFromServer(IOptions<ConfigSettingsBase> configSettingsBase, string tokenClear)
+        private static async Task<IEnumerable<Claim>> GetClaimsFromServer(IOptions<ConfigSettingsBase> configSettingsBase, string tokenClear)
         {
             var discoveryClient = new DiscoveryClient(configSettingsBase.Value.AuthorityEndPoint);
             var doc = await discoveryClient.GetAsync();
