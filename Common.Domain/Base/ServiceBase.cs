@@ -112,6 +112,13 @@ namespace Common.Domain.Base
             this._validationResult.Errors = _erros;
         }
 
+        public virtual async Task<T> DomainOrchestration(T entity, T entityOld)
+        {
+            return await Task.Run(() =>
+            {
+                return entity;
+            });
+        }
 
     }
 }

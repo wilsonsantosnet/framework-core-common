@@ -9098,10 +9098,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Pessoal\\framework-core-common\\Common.Api\\Common.Api.csproj",
-      "projectName": "Common.Api",
-      "projectPath": "C:\\Pessoal\\framework-core-common\\Common.Api\\Common.Api.csproj",
-      "outputPath": "C:\\Pessoal\\framework-core-common\\Common.Api\\obj\\",
+      "projectUniqueName": "C:\\Pessoal\\calemas-erp\\Common\\Common.API\\Common.API.csproj",
+      "projectName": "Common.API",
+      "projectPath": "C:\\Pessoal\\calemas-erp\\Common\\Common.API\\Common.API.csproj",
+      "outputPath": "C:\\Pessoal\\calemas-erp\\Common\\Common.API\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
@@ -9109,8 +9109,8 @@
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "C:\\Pessoal\\framework-core-common\\Common.Domain\\Common.Domain.csproj": {
-              "projectPath": "C:\\Pessoal\\framework-core-common\\Common.Domain\\Common.Domain.csproj"
+            "C:\\Pessoal\\calemas-erp\\Common\\Common.Domain\\Common.Domain.csproj": {
+              "projectPath": "C:\\Pessoal\\calemas-erp\\Common\\Common.Domain\\Common.Domain.csproj"
             }
           }
         }
