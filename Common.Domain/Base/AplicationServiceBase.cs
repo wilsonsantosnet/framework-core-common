@@ -117,7 +117,8 @@ namespace Common.Domain.Base
             await this.CommitAsync();
             return this.MapperDomainToDto<TD>(resultDomain); ;
         }
-       
+
+        
 
         private Summary Summary(PaginateResult<T> paginateResult)
         {
