@@ -8,6 +8,8 @@ namespace Common.Domain.Base
     public abstract class ServiceBase<T> where T : class
     {
 
+        protected List<T> _saveManyItens;
+
         protected readonly CacheHelper _cacheHelper;
 
         protected ValidationSpecificationResult _validationResult;
@@ -22,6 +24,7 @@ namespace Common.Domain.Base
         public ServiceBase(ICache cache)
         {
             this._cacheHelper = new CacheHelper(cache);
+            this._saveManyItens = new List<T>();
         }
 
         public virtual T AuditDefault(DomainBaseWithUserCreate entity, DomainBaseWithUserCreate entityOld)
@@ -48,13 +51,13 @@ namespace Common.Domain.Base
 
         public virtual async Task<IEnumerable<T>> Save(IEnumerable<T> entitys)
         {
-            var savedAll = new List<T>();
+            
             foreach (var item in entitys)
             {
                 var saved = await this.Save(item);
-                savedAll.Add(saved);
+                this._saveManyItens.Add(saved);
             }
-            return savedAll;
+            return this._saveManyItens;
 
         }
 
