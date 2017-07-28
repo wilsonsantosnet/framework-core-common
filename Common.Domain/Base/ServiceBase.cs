@@ -49,6 +49,14 @@ namespace Common.Domain.Base
             entity.SetUserUpdate(this._user.GetSubjectId<int>());
         }
 
+        public virtual void Remove(IEnumerable<T> entitys)
+        {
+            foreach (var entity in entitys)
+            {
+                this.Remove(entity);
+            }
+        }
+
         public virtual async Task<IEnumerable<T>> Save(IEnumerable<T> entitys)
         {
             
@@ -72,6 +80,8 @@ namespace Common.Domain.Base
             return this._saveManyItens;
 
         }
+
+        public abstract void Remove(T entity);
 
         public abstract Task<T> Save(T entity, bool questionToContinue = true);
 

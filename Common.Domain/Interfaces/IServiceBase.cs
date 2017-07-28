@@ -25,6 +25,8 @@ namespace Common.Domain.Interfaces
 
         void Remove(T entity);
 
+        void Remove(IEnumerable<T> entitys);
+
         Summary GetSummary(PaginateResult<T> paginateResult);
 
         ConfirmEspecificationResult GetDomainConfirm(FilterBase filters = null);

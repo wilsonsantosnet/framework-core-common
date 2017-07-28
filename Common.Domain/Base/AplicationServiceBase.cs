@@ -84,9 +84,9 @@ namespace Common.Domain.Base
 
         public virtual async Task<IEnumerable<TD>> SavePartial(IEnumerable<TD> entitys)
         {
-            var entitysChanged = await this.MapperDtoToDomain(entitys);
-
             this.BeginTransaction();
+
+            var entitysChanged = await this.MapperDtoToDomain(entitys);
 
             var resultDomain = await this._serviceBase.SavePartial(entitysChanged);
             if (!DomainIsValid())
