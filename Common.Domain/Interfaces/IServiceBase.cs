@@ -21,6 +21,8 @@ namespace Common.Domain.Interfaces
 
         Task<IEnumerable<T>> Save(IEnumerable<T> entitys);
 
+        Task<IEnumerable<T>> SavePartial(IEnumerable<T> entitys);
+
         void Remove(T entity);
 
         Summary GetSummary(PaginateResult<T> paginateResult);

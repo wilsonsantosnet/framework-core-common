@@ -61,6 +61,18 @@ namespace Common.Domain.Base
 
         }
 
+        public virtual async Task<IEnumerable<T>> SavePartial(IEnumerable<T> entitys)
+        {
+
+            foreach (var item in entitys)
+            {
+                var saved = await this.SavePartial(item);
+                this._saveManyItens.Add(saved);
+            }
+            return this._saveManyItens;
+
+        }
+
         public abstract Task<T> Save(T entity, bool questionToContinue = true);
 
         public abstract Task<T> SavePartial(T entity, bool questionToContinue = true);
