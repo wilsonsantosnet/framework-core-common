@@ -43,6 +43,8 @@ namespace Common.Domain.Interfaces
 
         string GetTagNameCache();
 
-        Task<T> GetDefaultInstance(dynamic model, CurrentUser user);
+        Task<T> GetNewInstance(dynamic model, CurrentUser user);
+
+        Task<T> GetUpdateInstance(dynamic model, CurrentUser user);
     }
 }
