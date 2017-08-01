@@ -141,7 +141,12 @@ namespace Common.Domain.Base
         {
             return await Task.Run(() =>
             {
+                var isNew = entityOld.IsNull();
+                if (isNew)
+                    return entity;
+
                 return entity;
+
             });
         }
 
