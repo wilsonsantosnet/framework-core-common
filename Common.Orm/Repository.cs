@@ -80,6 +80,7 @@ namespace Common.Orm
             return new PaginateResult<T>
             {
                 TotalCount = totalCount,
+                PageSize = filters.PageSize,
                 ResultPaginatedData = queryMapped,
                 Source = queryFilter
             };
