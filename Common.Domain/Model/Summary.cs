@@ -12,6 +12,8 @@ namespace Common.Domain.Model
     {
 
         public int Total { get; set; }
+        
+        public int PageSize { get; set; }
 
         public object AdditionalSummary { get; set; }
 
