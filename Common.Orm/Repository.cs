@@ -68,6 +68,11 @@ namespace Common.Orm
         {
             dbSet.Remove(entity);
         }
+        
+        public virtual void RemoveRange(IEnumerable<T> entitys)
+        {
+            dbSet.RemoveRange(entitys);
+        }
 
         public virtual async Task<PaginateResult<T>> PagingAndDefineFields(FilterBase filters, IQueryable<T> queryFilter)
         {
