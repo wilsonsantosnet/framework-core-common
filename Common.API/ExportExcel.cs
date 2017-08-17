@@ -11,10 +11,19 @@ namespace Common.API
     public class ExportExcel<T>
     {
         private FilterBase _filter;
+        private string _fileName;
+
         public ExportExcel(FilterBase filter)
         {
             this._filter = filter;
         }
+        
+
+        public virtual string GetFileName()
+        {
+            return this._fileName;
+        }
+
         public virtual string ContentTypeExcel()
         {
             return "application/vnd.ms-excel";
@@ -25,6 +34,7 @@ namespace Common.API
             var fileName = Guid.NewGuid().ToString() + ".xls";
             response.Headers.Add("content-disposition", "attachment; filename=Information" + fileName);
             response.ContentType = "application/vnd.ms-excel";
+            this._fileName = fileName;
             return System.Text.Encoding.UTF8.GetBytes(content);
 
         }
