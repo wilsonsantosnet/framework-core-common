@@ -1,16 +1,34 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Common.Domain.Base;
 
 namespace Common.API
 {
-    public static class ExportExcel<T>
+    public class ExportExcel<T>
     {
+        private FilterBase _filter;
+        public ExportExcel(FilterBase filter)
+        {
+            this._filter = filter;
+        }
+        public virtual string ContentTypeExcel()
+        {
+            return "application/vnd.ms-excel";
+        }
+        public virtual byte[] ExportFile(HttpResponse response, IEnumerable<T> data, string nome)
+        {
+            var content = Export(data, nome);
+            var fileName = Guid.NewGuid().ToString() + ".xls";
+            response.Headers.Add("content-disposition", "attachment; filename=Information" + fileName);
+            response.ContentType = "application/vnd.ms-excel";
+            return System.Text.Encoding.UTF8.GetBytes(content);
 
-        public static string Export(IEnumerable<T> data, string nome)
+        }
+        public virtual string Export(IEnumerable<T> data, string nome)
         {
 
             var xml = string.Empty;
@@ -24,7 +42,7 @@ namespace Common.API
             xml += "  <ss:Row ss:StyleID=\"1\">";
 
             foreach (var item in data.FirstOrDefault().GetType().GetTypeInfo().GetProperties()
-                .Where(_=>_.GetType().GetTypeInfo().IsClass))
+                .Where(_ => _.GetType().GetTypeInfo().IsClass))
             {
                 var propriedade = item.Name;
                 xml += "<ss:Cell><ss:Data ss:Type=\"String\">" + propriedade + "</ss:Data></ss:Cell>";
