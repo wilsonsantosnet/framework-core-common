@@ -71,7 +71,7 @@ namespace Common.API
                     {
                         var ehNumber = new Regex("/^\\d +$/").IsMatch(valor.ToString());
                         xml += "<ss:Cell><ss:Data ss:Type=\"" + ((ehNumber) ? "Number" : "String") + "\">" + valor + "</ss:Data></ss:Cell>";
-                    }
+                    }else xml += "<ss:Cell><ss:Data ss:Type=\"String\"></ss:Data></ss:Cell>";
                 }
                 xml += " </ss:Row>";
             }
