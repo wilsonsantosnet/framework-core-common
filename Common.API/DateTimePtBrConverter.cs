@@ -11,9 +11,13 @@ namespace Common.API
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
 			if (reader.Value.IsNull())
-				return null;
+	    		return null;
 
-			return DateTime.Parse(reader.Value.ToString());
+	   		if (DateTime.TryParse(reader.Value.ToString(), out DateTime data))
+	    		return data;
+
+			return null;
+		
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
