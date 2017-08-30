@@ -7780,10 +7780,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\pendencia\\Common.Cache\\Common.Cache.csproj",
+      "projectUniqueName": "C:\\Projetos\\framework-core-common\\Common.Cache\\Common.Cache.csproj",
       "projectName": "Common.Cache",
-      "projectPath": "C:\\Projetos\\pendencia\\Common.Cache\\Common.Cache.csproj",
-      "outputPath": "C:\\Projetos\\pendencia\\Common.Cache\\obj\\",
+      "projectPath": "C:\\Projetos\\framework-core-common\\Common.Cache\\Common.Cache.csproj",
+      "outputPath": "C:\\Projetos\\framework-core-common\\Common.Cache\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
@@ -7791,8 +7791,8 @@
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "C:\\Projetos\\pendencia\\Common.Domain\\Common.Domain.csproj": {
-              "projectPath": "C:\\Projetos\\pendencia\\Common.Domain\\Common.Domain.csproj"
+            "C:\\Projetos\\framework-core-common\\Common.Domain\\Common.Domain.csproj": {
+              "projectPath": "C:\\Projetos\\framework-core-common\\Common.Domain\\Common.Domain.csproj"
             }
           }
         }

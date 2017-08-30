@@ -25,3 +25,12 @@ C:\Projetos\pendencia\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.csprojResolv
 C:\Projetos\pendencia\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.AssemblyInfo.cs
 C:\Projetos\pendencia\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.dll
 C:\Projetos\pendencia\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.pdb
+C:\Projetos\framework-core-common\Common.Dto\bin\Debug\netcoreapp1.1\Common.Dto.deps.json
+C:\Projetos\framework-core-common\Common.Dto\bin\Debug\netcoreapp1.1\Common.Dto.dll
+C:\Projetos\framework-core-common\Common.Dto\bin\Debug\netcoreapp1.1\Common.Dto.pdb
+C:\Projetos\framework-core-common\Common.Dto\bin\Debug\netcoreapp1.1\Common.Domain.dll
+C:\Projetos\framework-core-common\Common.Dto\bin\Debug\netcoreapp1.1\Common.Domain.pdb
+C:\Projetos\framework-core-common\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.csprojResolveAssemblyReference.cache
+C:\Projetos\framework-core-common\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.AssemblyInfo.cs
+C:\Projetos\framework-core-common\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.dll
+C:\Projetos\framework-core-common\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.pdb

@@ -8237,10 +8237,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\pendencia\\Common.Orm\\Common.Orm.csproj",
+      "projectUniqueName": "C:\\Projetos\\framework-core-common\\Common.Orm\\Common.Orm.csproj",
       "projectName": "Common.Orm",
-      "projectPath": "C:\\Projetos\\pendencia\\Common.Orm\\Common.Orm.csproj",
-      "outputPath": "C:\\Projetos\\pendencia\\Common.Orm\\obj\\",
+      "projectPath": "C:\\Projetos\\framework-core-common\\Common.Orm\\Common.Orm.csproj",
+      "outputPath": "C:\\Projetos\\framework-core-common\\Common.Orm\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
@@ -8248,8 +8248,8 @@
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "C:\\Projetos\\pendencia\\Common.Domain\\Common.Domain.csproj": {
-              "projectPath": "C:\\Projetos\\pendencia\\Common.Domain\\Common.Domain.csproj"
+            "C:\\Projetos\\framework-core-common\\Common.Domain\\Common.Domain.csproj": {
+              "projectPath": "C:\\Projetos\\framework-core-common\\Common.Domain\\Common.Domain.csproj"
             }
           }
         }

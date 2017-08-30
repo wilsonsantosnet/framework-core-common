@@ -25,3 +25,12 @@ C:\Projetos\pendencia\Common.Orm\obj\Debug\netcoreapp1.1\Common.Orm.csprojResolv
 C:\Projetos\pendencia\Common.Orm\obj\Debug\netcoreapp1.1\Common.Orm.AssemblyInfo.cs
 C:\Projetos\pendencia\Common.Orm\obj\Debug\netcoreapp1.1\Common.Orm.dll
 C:\Projetos\pendencia\Common.Orm\obj\Debug\netcoreapp1.1\Common.Orm.pdb
+C:\Projetos\framework-core-common\Common.Orm\bin\Debug\netcoreapp1.1\Common.Orm.deps.json
+C:\Projetos\framework-core-common\Common.Orm\bin\Debug\netcoreapp1.1\Common.Orm.dll
+C:\Projetos\framework-core-common\Common.Orm\bin\Debug\netcoreapp1.1\Common.Orm.pdb
+C:\Projetos\framework-core-common\Common.Orm\bin\Debug\netcoreapp1.1\Common.Domain.dll
+C:\Projetos\framework-core-common\Common.Orm\bin\Debug\netcoreapp1.1\Common.Domain.pdb
+C:\Projetos\framework-core-common\Common.Orm\obj\Debug\netcoreapp1.1\Common.Orm.csprojResolveAssemblyReference.cache
+C:\Projetos\framework-core-common\Common.Orm\obj\Debug\netcoreapp1.1\Common.Orm.AssemblyInfo.cs
+C:\Projetos\framework-core-common\Common.Orm\obj\Debug\netcoreapp1.1\Common.Orm.dll
+C:\Projetos\framework-core-common\Common.Orm\obj\Debug\netcoreapp1.1\Common.Orm.pdb
