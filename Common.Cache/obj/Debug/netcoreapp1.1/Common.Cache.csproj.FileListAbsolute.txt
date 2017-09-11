@@ -34,3 +34,12 @@ C:\Projetos\framework-core-common\Common.Cache\obj\Debug\netcoreapp1.1\Common.Ca
 C:\Projetos\framework-core-common\Common.Cache\obj\Debug\netcoreapp1.1\Common.Cache.AssemblyInfo.cs
 C:\Projetos\framework-core-common\Common.Cache\obj\Debug\netcoreapp1.1\Common.Cache.dll
 C:\Projetos\framework-core-common\Common.Cache\obj\Debug\netcoreapp1.1\Common.Cache.pdb
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Cache\bin\Debug\netcoreapp1.1\Common.Cache.deps.json
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Cache\bin\Debug\netcoreapp1.1\Common.Cache.dll
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Cache\bin\Debug\netcoreapp1.1\Common.Cache.pdb
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Cache\bin\Debug\netcoreapp1.1\Common.Domain.dll
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Cache\bin\Debug\netcoreapp1.1\Common.Domain.pdb
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Cache\obj\Debug\netcoreapp1.1\Common.Cache.csprojResolveAssemblyReference.cache
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Cache\obj\Debug\netcoreapp1.1\Common.Cache.AssemblyInfo.cs
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Cache\obj\Debug\netcoreapp1.1\Common.Cache.dll
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Cache\obj\Debug\netcoreapp1.1\Common.Cache.pdb

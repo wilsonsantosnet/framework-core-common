@@ -34,3 +34,12 @@ C:\Projetos\framework-core-common\Common.Validation\obj\Debug\netcoreapp1.1\Comm
 C:\Projetos\framework-core-common\Common.Validation\obj\Debug\netcoreapp1.1\Common.Validation.AssemblyInfo.cs
 C:\Projetos\framework-core-common\Common.Validation\obj\Debug\netcoreapp1.1\Common.Validation.dll
 C:\Projetos\framework-core-common\Common.Validation\obj\Debug\netcoreapp1.1\Common.Validation.pdb
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Validation\bin\Debug\netcoreapp1.1\Common.Validation.deps.json
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Validation\bin\Debug\netcoreapp1.1\Common.Validation.dll
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Validation\bin\Debug\netcoreapp1.1\Common.Validation.pdb
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Validation\bin\Debug\netcoreapp1.1\Common.Domain.dll
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Validation\bin\Debug\netcoreapp1.1\Common.Domain.pdb
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Validation\obj\Debug\netcoreapp1.1\Common.Validation.csprojResolveAssemblyReference.cache
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Validation\obj\Debug\netcoreapp1.1\Common.Validation.AssemblyInfo.cs
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Validation\obj\Debug\netcoreapp1.1\Common.Validation.dll
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Validation\obj\Debug\netcoreapp1.1\Common.Validation.pdb

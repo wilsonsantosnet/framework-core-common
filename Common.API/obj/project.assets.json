@@ -9375,10 +9375,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\framework-core-common\\Common.Api\\Common.Api.csproj",
+      "projectUniqueName": "C:\\Projetos\\Outros\\Repositorios\\framework-core-common\\Common.Api\\Common.Api.csproj",
       "projectName": "Common.Api",
-      "projectPath": "C:\\Projetos\\framework-core-common\\Common.Api\\Common.Api.csproj",
-      "outputPath": "C:\\Projetos\\framework-core-common\\Common.Api\\obj\\",
+      "projectPath": "C:\\Projetos\\Outros\\Repositorios\\framework-core-common\\Common.Api\\Common.Api.csproj",
+      "outputPath": "C:\\Projetos\\Outros\\Repositorios\\framework-core-common\\Common.Api\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
@@ -9386,8 +9386,8 @@
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "C:\\Projetos\\framework-core-common\\Common.Domain\\Common.Domain.csproj": {
-              "projectPath": "C:\\Projetos\\framework-core-common\\Common.Domain\\Common.Domain.csproj"
+            "C:\\Projetos\\Outros\\Repositorios\\framework-core-common\\Common.Domain\\Common.Domain.csproj": {
+              "projectPath": "C:\\Projetos\\Outros\\Repositorios\\framework-core-common\\Common.Domain\\Common.Domain.csproj"
             }
           }
         }

@@ -26,3 +26,10 @@ C:\Projetos\framework-core-common\Common.Domain\obj\Debug\netcoreapp1.1\Common.D
 C:\Projetos\framework-core-common\Common.Domain\obj\Debug\netcoreapp1.1\Common.Domain.AssemblyInfo.cs
 C:\Projetos\framework-core-common\Common.Domain\obj\Debug\netcoreapp1.1\Common.Domain.dll
 C:\Projetos\framework-core-common\Common.Domain\obj\Debug\netcoreapp1.1\Common.Domain.pdb
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Domain\bin\Debug\netcoreapp1.1\Common.Domain.deps.json
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Domain\bin\Debug\netcoreapp1.1\Common.Domain.dll
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Domain\bin\Debug\netcoreapp1.1\Common.Domain.pdb
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Domain\obj\Debug\netcoreapp1.1\Common.Domain.csprojResolveAssemblyReference.cache
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Domain\obj\Debug\netcoreapp1.1\Common.Domain.AssemblyInfo.cs
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Domain\obj\Debug\netcoreapp1.1\Common.Domain.dll
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Domain\obj\Debug\netcoreapp1.1\Common.Domain.pdb

@@ -34,3 +34,12 @@ C:\Projetos\framework-core-common\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.
 C:\Projetos\framework-core-common\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.AssemblyInfo.cs
 C:\Projetos\framework-core-common\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.dll
 C:\Projetos\framework-core-common\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.pdb
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Dto\bin\Debug\netcoreapp1.1\Common.Dto.deps.json
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Dto\bin\Debug\netcoreapp1.1\Common.Dto.dll
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Dto\bin\Debug\netcoreapp1.1\Common.Dto.pdb
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Dto\bin\Debug\netcoreapp1.1\Common.Domain.dll
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Dto\bin\Debug\netcoreapp1.1\Common.Domain.pdb
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.csprojResolveAssemblyReference.cache
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.AssemblyInfo.cs
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.dll
+C:\Projetos\Outros\Repositorios\framework-core-common\Common.Dto\obj\Debug\netcoreapp1.1\Common.Dto.pdb

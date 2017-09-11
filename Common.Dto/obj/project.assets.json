@@ -7548,10 +7548,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\framework-core-common\\Common.Dto\\Common.Dto.csproj",
+      "projectUniqueName": "C:\\Projetos\\Outros\\Repositorios\\framework-core-common\\Common.Dto\\Common.Dto.csproj",
       "projectName": "Common.Dto",
-      "projectPath": "C:\\Projetos\\framework-core-common\\Common.Dto\\Common.Dto.csproj",
-      "outputPath": "C:\\Projetos\\framework-core-common\\Common.Dto\\obj\\",
+      "projectPath": "C:\\Projetos\\Outros\\Repositorios\\framework-core-common\\Common.Dto\\Common.Dto.csproj",
+      "outputPath": "C:\\Projetos\\Outros\\Repositorios\\framework-core-common\\Common.Dto\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
@@ -7559,8 +7559,8 @@
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "C:\\Projetos\\framework-core-common\\Common.Domain\\Common.Domain.csproj": {
-              "projectPath": "C:\\Projetos\\framework-core-common\\Common.Domain\\Common.Domain.csproj"
+            "C:\\Projetos\\Outros\\Repositorios\\framework-core-common\\Common.Domain\\Common.Domain.csproj": {
+              "projectPath": "C:\\Projetos\\Outros\\Repositorios\\framework-core-common\\Common.Domain\\Common.Domain.csproj"
             }
           }
         }

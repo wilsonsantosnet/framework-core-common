@@ -7534,10 +7534,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\framework-core-common\\Common.Domain\\Common.Domain.csproj",
+      "projectUniqueName": "C:\\Projetos\\Outros\\Repositorios\\framework-core-common\\Common.Domain\\Common.Domain.csproj",
       "projectName": "Common.Domain",
-      "projectPath": "C:\\Projetos\\framework-core-common\\Common.Domain\\Common.Domain.csproj",
-      "outputPath": "C:\\Projetos\\framework-core-common\\Common.Domain\\obj\\",
+      "projectPath": "C:\\Projetos\\Outros\\Repositorios\\framework-core-common\\Common.Domain\\Common.Domain.csproj",
+      "outputPath": "C:\\Projetos\\Outros\\Repositorios\\framework-core-common\\Common.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
