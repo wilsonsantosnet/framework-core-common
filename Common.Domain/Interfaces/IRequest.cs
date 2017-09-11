@@ -7,6 +7,8 @@ namespace Common.Domain
 {
     public interface IRequest
     {
+        void SetAddress(string address);
+        void AddHeaders(string item);
         TResult Get<TResult>(string resource, NameValueCollection queryStringParameters = null);
     }
 }
