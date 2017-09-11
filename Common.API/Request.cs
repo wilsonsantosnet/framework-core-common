@@ -1,4 +1,4 @@
-﻿using Common.Domain;
+using Common.Domain;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -15,16 +15,25 @@ namespace Common.Api
         private string baseAddress;
         private List<string> customHeaders;
 
-        public Request(string baseAddress)
+        public Request()
         {
-            this.baseAddress = baseAddress;
             this.customHeaders = new List<string>();
         }
 
+        public void SetAddress(string address)
+        {
+            this.baseAddress = address;
+        }
+        public void AddHeaders(string item)
+        {
+            this.customHeaders.Add(item);
+        }
         public TResult Get<TResult>(string resource, NameValueCollection queryStringParameters = null)
         {
+
             var parameters = new QueryStringParameter().Add(queryStringParameters);
             return this.Get<TResult>(resource, parameters);
+
         }
 
         public TResult Get<TResult>(string resource, QueryStringParameter queryParameters = null)
@@ -55,11 +64,12 @@ namespace Common.Api
         }
         private string MakeResource(string resource, QueryStringParameter queryParameters)
         {
-            if (queryParameters != null)
+            if (queryParameters != null && queryParameters.Get() != null)
             {
                 var queryStringUrl = queryParameters.Get().ToQueryString();
                 resource = String.Concat(resource, queryStringUrl);
             }
+
             return resource;
         }
         private void AddHeaderInClientRequest(string[] headers, HttpClient client)
