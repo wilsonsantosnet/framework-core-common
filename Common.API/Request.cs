@@ -36,8 +36,34 @@ namespace Common.Api
 
         }
 
+        public TResult Post<TResult, TModel>(string resource, TModel model)
+        {
+            var statusCode = default(HttpStatusCode);
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.baseAddress);
+
+                if (this.customHeaders.IsAny())
+                    AddHeaderInClientRequest(this.customHeaders.ToArray(), client);
+
+                var json = JsonConvert.SerializeObject(model);
+                var response = client.PostAsync(resource, new StringContent(json, Encoding.UTF8, "application/json")).Result;
+                statusCode = response.StatusCode;
+
+                if (statusCode == HttpStatusCode.OK)
+                {
+                    var data = response.Content.ReadAsStringAsync().Result;
+                    var result = JsonConvert.DeserializeObject<TResult>(data);
+                    return result;
+                }
+            }
+
+            throw new InvalidOperationException(statusCode.ToString());
+        }
+
         public TResult Get<TResult>(string resource, QueryStringParameter queryParameters = null)
         {
+            var statusCode = default(HttpStatusCode);
             using (var client = new HttpClient())
             {
 
@@ -50,17 +76,17 @@ namespace Common.Api
 
 
                 var response = client.GetAsync(resource).Result;
+                statusCode = response.StatusCode;
 
-                if (response.StatusCode == HttpStatusCode.OK)
+                if (statusCode == HttpStatusCode.OK)
                 {
                     var data = response.Content.ReadAsStringAsync().Result;
                     var result = JsonConvert.DeserializeObject<TResult>(data);
                     return result;
                 }
-
-                return default(TResult);
-
             }
+
+            throw new InvalidOperationException(statusCode.ToString());
         }
         private string MakeResource(string resource, QueryStringParameter queryParameters)
         {
@@ -89,7 +115,6 @@ namespace Common.Api
                         client.DefaultRequestHeaders.Add(headerKey, headerValue);
                 }
             }
-        }
-
+        } 
     }
 }
