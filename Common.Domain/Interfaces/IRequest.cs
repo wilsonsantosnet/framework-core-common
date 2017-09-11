@@ -10,5 +10,6 @@ namespace Common.Domain
         void SetAddress(string address);
         void AddHeaders(string item);
         TResult Get<TResult>(string resource, NameValueCollection queryStringParameters = null);
+        TResult Post<TResult, TModel>(string resource, TModel model)
     }
 }
