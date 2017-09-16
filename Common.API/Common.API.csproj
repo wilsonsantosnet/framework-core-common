@@ -31,4 +31,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="1.1.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
 </Project>
