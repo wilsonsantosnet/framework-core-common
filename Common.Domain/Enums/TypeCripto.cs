@@ -11,6 +11,6 @@ namespace Common.Domain.Enums
 
         Hash128,
         Hash512,
-
+        MD5Hash
     }
 }

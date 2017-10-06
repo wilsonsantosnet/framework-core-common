@@ -5,3 +5,17 @@ C:\Projetos\Target.Pendencias\Common.Domain\obj\Release\netcoreapp1.1\Common.Dom
 C:\Projetos\Target.Pendencias\Common.Domain\obj\Release\netcoreapp1.1\Common.Domain.AssemblyInfo.cs
 C:\Projetos\Target.Pendencias\Common.Domain\obj\Release\netcoreapp1.1\Common.Domain.dll
 C:\Projetos\Target.Pendencias\Common.Domain\obj\Release\netcoreapp1.1\Common.Domain.pdb
+C:\Projetos\pendencia\Common.Domain\bin\Release\netcoreapp1.1\Common.Domain.deps.json
+C:\Projetos\pendencia\Common.Domain\bin\Release\netcoreapp1.1\Common.Domain.dll
+C:\Projetos\pendencia\Common.Domain\bin\Release\netcoreapp1.1\Common.Domain.pdb
+C:\Projetos\pendencia\Common.Domain\obj\Release\netcoreapp1.1\Common.Domain.AssemblyInfo.cs
+C:\Projetos\pendencia\Common.Domain\obj\Release\netcoreapp1.1\Common.Domain.dll
+C:\Projetos\pendencia\Common.Domain\obj\Release\netcoreapp1.1\Common.Domain.pdb
+C:\Projetos\pendencia\Common.Domain\obj\Release\netcoreapp1.1\Common.Domain.csprojResolveAssemblyReference.cache
+C:\Projetos\pendencia2\Common.Domain\bin\Release\netcoreapp1.1\Common.Domain.deps.json
+C:\Projetos\pendencia2\Common.Domain\bin\Release\netcoreapp1.1\Common.Domain.dll
+C:\Projetos\pendencia2\Common.Domain\bin\Release\netcoreapp1.1\Common.Domain.pdb
+C:\Projetos\pendencia2\Common.Domain\obj\Release\netcoreapp1.1\Common.Domain.csprojResolveAssemblyReference.cache
+C:\Projetos\pendencia2\Common.Domain\obj\Release\netcoreapp1.1\Common.Domain.AssemblyInfo.cs
+C:\Projetos\pendencia2\Common.Domain\obj\Release\netcoreapp1.1\Common.Domain.dll
+C:\Projetos\pendencia2\Common.Domain\obj\Release\netcoreapp1.1\Common.Domain.pdb
