@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Common.Mail
 {
-    public class Email
+    public class Email : IEmail
     {
 
         private string smtpServer;
