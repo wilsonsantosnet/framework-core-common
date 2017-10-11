@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -17,19 +18,31 @@ namespace Common.Orm
             typeof(Queryable).GetMethods().Single(method =>
            method.Name == "OrderByDescending" && method.GetParameters().Length == 2);
 
-        public static bool PropertyExists<T>(string propertyName)
+
+        public static IQueryable<T> OrderByProperty<T>(this IQueryable<T> source, OrderByType orderByType, string[] propertyName)
         {
-            return typeof(T).GetProperty(propertyName, BindingFlags.IgnoreCase |
-                BindingFlags.Public | BindingFlags.Instance) != null;
+            if (propertyName.IsNotAny())
+                return source;
+
+            if (orderByType == OrderByType.OrderByDescending)
+                return OrderByPropertyDescending(source, DefinePropertyName(propertyName));
+
+            return OrderByPropertyAscending(source, DefinePropertyName(propertyName));
         }
 
-        public static IQueryable<T> OrderByProperty<T>(
-           this IQueryable<T> source, string propertyName)
+        private static string DefinePropertyName(string[] propertyName)
+        {
+            var _propertyName = propertyName.LastOrDefault();
+            var _parentProperty = _propertyName.Split('.')[0];
+            return _parentProperty;
+        }
+
+        public static IQueryable<T> OrderByPropertyAscending<T>(this IQueryable<T> source, string propertyName)
         {
             if (typeof(T).GetProperty(propertyName, BindingFlags.IgnoreCase |
                 BindingFlags.Public | BindingFlags.Instance) == null)
             {
-                return null;
+                return source;
             }
             var paramterExpression = Expression.Parameter(typeof(T));
             var orderByProperty = Expression.Property(paramterExpression, propertyName);
@@ -45,7 +58,7 @@ namespace Common.Orm
             if (typeof(T).GetProperty(propertyName, BindingFlags.IgnoreCase |
                 BindingFlags.Public | BindingFlags.Instance) == null)
             {
-                return null;
+                return source;
             }
             var paramterExpression = Expression.Parameter(typeof(T));
             var orderByProperty = Expression.Property(paramterExpression, propertyName);
@@ -53,6 +66,13 @@ namespace Common.Orm
             var genericMethod = OrderByDescendingMethod.MakeGenericMethod(typeof(T), orderByProperty.Type);
             var ret = genericMethod.Invoke(null, new object[] { source, lambda });
             return (IQueryable<T>)ret;
+        }
+
+
+        private static bool PropertyExists<T>(string propertyName)
+        {
+            return typeof(T).GetProperty(propertyName, BindingFlags.IgnoreCase |
+                BindingFlags.Public | BindingFlags.Instance) != null;
         }
     }
 }
