@@ -1,4 +1,5 @@
-﻿using Common.Domain.Enums;
+﻿using Common.Domain.Base;
+using Common.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,15 +20,16 @@ namespace Common.Orm
            method.Name == "OrderByDescending" && method.GetParameters().Length == 2);
 
 
-        public static IQueryable<T> OrderByProperty<T>(this IQueryable<T> source, OrderByType orderByType, string[] propertyName)
+        public static IQueryable<T> OrderByProperty<T>(this IQueryable<T> source, FilterBase filters)
         {
-            if (propertyName.IsNotAny())
+            
+            if (filters.OrderFields.IsNotAny())
                 return source;
 
-            if (orderByType == OrderByType.OrderByDescending)
-                return OrderByPropertyDescending(source, DefinePropertyName(propertyName));
+            if (filters.OrderByType == OrderByType.OrderByDescending)
+                return OrderByPropertyDescending(source, DefinePropertyName(filters.OrderFields));
 
-            return OrderByPropertyAscending(source, DefinePropertyName(propertyName));
+            return OrderByPropertyAscending(source, DefinePropertyName(filters.OrderFields));
         }
 
         private static string DefinePropertyName(string[] propertyName)

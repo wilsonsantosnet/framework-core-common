@@ -97,6 +97,20 @@ namespace Common.Orm
             };
         }
 
+        public virtual async Task<PaginateResult<TResultP>> PagingDataListCustom<TResultP>(FilterBase filters, IQueryable<TResultP> queryOptimize)
+        {
+            var totalCount = await this.CountAsync(queryOptimize);
+            var paginateResult = await this.ToListAsync(this.Paging(queryOptimize, filters, totalCount));
+
+            return new PaginateResult<TResultP>
+            {
+                TotalCount = totalCount,
+                PageSize = filters.PageSize,
+                ResultPaginatedData = paginateResult,
+                Source = queryOptimize
+            };
+        }
+
         protected abstract dynamic DefineFieldsGetOne(IQueryable<T> source, string queryOptimizerBehavior);
 
         protected abstract IQueryable<dynamic> DefineFieldsGetByFilters(IQueryable<T> source, FilterBase filters);

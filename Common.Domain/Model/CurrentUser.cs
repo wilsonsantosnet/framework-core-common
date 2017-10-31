@@ -68,12 +68,17 @@ namespace Common.Domain.Model
 
         public TS GetSubjectId<TS>()
         {
-            var subjectId = this._claims
-                .Where(_ => _.Key.ToLower() == "sub")
-                .SingleOrDefault()
-                .Value;
+            if (this._claims.IsAny())
+            {
+                var subjectId = this._claims
+                    .Where(_ => _.Key.ToLower() == "sub")
+                    .SingleOrDefault()
+                    .Value;
 
-            return (TS)Convert.ChangeType(subjectId, typeof(TS));
+                return (TS)Convert.ChangeType(subjectId, typeof(TS));
+            }
+
+            return default(TS);
         }
 
         

@@ -25,7 +25,7 @@ namespace Common.API.Extensions
         public async Task Invoke(HttpContext context, CurrentUser currentUser, IOptions<ConfigSettingsBase> configSettingsBase)
         {
             var token = context.Request.Headers["Authorization"];
-            if (!token.IsNotNull())
+            if (!token.IsNullOrEmpaty())
             {
                 var tokenClear = token.ToString().Replace("Bearer ", "");
                 var jwt = new JwtSecurityTokenHandler();

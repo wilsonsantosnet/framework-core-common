@@ -10,6 +10,7 @@ namespace Common.Domain.Enums
         GetDataItem,
         GetDataCustom,
         GetDataListCustom,
+        GetDataListCustomPaging,
         Export
     }
 }

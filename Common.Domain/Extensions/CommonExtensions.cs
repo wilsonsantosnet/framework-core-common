@@ -136,6 +136,14 @@ public static class CommonExtensions
     #endregion
 
     #region Sents
+    public static bool IsSent(this Guid? value)
+    {
+        return value != null;
+    }
+    public static bool IsSent(this Guid value)
+    {
+        return value != null;
+    }
     public static bool IsSent(this short value)
     {
         return IsNotDefault(value);
