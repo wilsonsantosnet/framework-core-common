@@ -28,6 +28,10 @@ namespace Common.Api
         {
             this.customHeaders.Add(item);
         }
+        public void SetBearerToken(string accessToken)
+        {
+            this.customHeaders.Add(string.Format("Authorization: Bearer {0}", accessToken));
+        }
         public TResult Get<TResult>(string resource, NameValueCollection queryStringParameters = null)
         {
 

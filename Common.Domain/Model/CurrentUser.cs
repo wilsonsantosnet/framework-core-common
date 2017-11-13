@@ -12,15 +12,14 @@ namespace Common.Domain.Model
     {
 
         private string _token;
+        private Dictionary<string, object> _claims;
 
         public void Init(string token, Dictionary<string, object> claims)
         {
             this._token = token;
             this._claims = claims;
         }
-
-        private Dictionary<string, object> _claims;
-
+        
         public string GetToken()
         {
             return this._token;
@@ -81,7 +80,7 @@ namespace Common.Domain.Model
             return default(TS);
         }
 
-        
+
 
     }
 }
