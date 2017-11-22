@@ -22,7 +22,10 @@ namespace Common.Orm
 
         public static IQueryable<T> OrderByProperty<T>(this IQueryable<T> source, FilterBase filters)
         {
-            
+
+            if (filters.IsOrderByDomain)
+                return source;
+
             if (filters.OrderFields.IsNotAny())
                 return source;
 
