@@ -68,10 +68,10 @@ namespace Common.API
             return this;
         }
 
-        public HttpResult<T> Error(string erro)
+        public HttpResult<T> Error(string erro, ErrorMap errorMap = null)
         {
-
-            var erroTraduction = new ErrorMap().GetAll().Where(_ => erro.ToUpper().Contains(_.Key.ToUpper())).SingleOrDefault().Value;
+            var _errorMap = errorMap.IsNotNull() ? errorMap : new ErrorMap();
+            var erroTraduction = _errorMap.GetTraduction(erro);
 
             var errorFinal = erroTraduction ?? erro;
 
@@ -211,7 +211,7 @@ namespace Common.API
 
         }
 
-        public ObjectResult ReturnCustomException(Exception ex, string appName, object model = null)
+        public ObjectResult ReturnCustomException(Exception ex, string appName, object model = null, ErrorMap errorMap = null)
         {
 
             var result = default(HttpResult<T>);
@@ -248,7 +248,7 @@ namespace Common.API
                 var modelSerialization = JsonConvert.SerializeObject(model);
                 erroMessage = string.Format("[{0}] - {1} - [{2}]", appName, ex.Message, modelSerialization);
             }
-            result = ExceptionWithInner(ex, appName);
+            result = ExceptionWithInner(ex, appName, errorMap);
 
 
             this._logger.LogCritical("{0} - [1]", erroMessage, ex);
@@ -256,14 +256,14 @@ namespace Common.API
 
         }
 
-        private HttpResult<T> ExceptionWithInner(Exception ex, string appName)
+        private HttpResult<T> ExceptionWithInner(Exception ex, string appName, ErrorMap errorMap = null)
         {
             if (ex.InnerException.IsNotNull())
             {
                 if (ex.InnerException.InnerException.IsNotNull())
-                    return this.Error(string.Format("[{0}] - InnerException: {1}", appName, ex.InnerException.InnerException.Message));
+                    return this.Error(string.Format("[{0}] - InnerException: {1}", appName, ex.InnerException.InnerException.Message, errorMap));
                 else
-                    return this.Error(string.Format("[{0}] - InnerException: {1}", appName , ex.InnerException.Message));
+                    return this.Error(string.Format("[{0}] - InnerException: {1}", appName, ex.InnerException.Message, errorMap));
             }
             else
             {
