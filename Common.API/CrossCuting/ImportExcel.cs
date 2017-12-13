@@ -42,9 +42,12 @@ namespace Common.API
                     var item = new Dictionary<string, object>();
                     for (var col = 1; col <= colCount; col++)
                     {
-                        var fieldName = worksheet.Cells[1, col].Value.ToString();
-                        var fieldValue = worksheet.Cells[row, col].Value.IsNotNull() ? worksheet.Cells[row, col].Value.ToString() : null;
-                        item.Add(fieldName, fieldValue);
+                        if (worksheet.Cells[1, col].Value.IsNotNull())
+                        {
+                            var fieldName = worksheet.Cells[1, col].Value.ToString();
+                            var fieldValue = worksheet.Cells[row, col].Value.IsNotNull() ? worksheet.Cells[row, col].Value.ToString() : null;
+                            item.Add(fieldName, fieldValue);
+                        }
                     }
                     model.Add(item);
 

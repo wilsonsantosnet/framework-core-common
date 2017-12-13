@@ -111,7 +111,7 @@ public static class CommonExtensions
     }
 
     #endregion
-    
+
     #region Ready
 
     public static bool IsReady(this int value)
@@ -304,51 +304,34 @@ public static class CommonExtensions
         else
             return ToPercentage(instance.Value);
     }
-    public static DateTime ToDate(this string value)
+    public static DateTime? StringToDate(this string value)
     {
-        try
-        {
-            DateTime result;
-            DateTime.TryParse(value, out result);
-            return result;
-        }
-        catch
-        {
-            return new DateTime();
-        }
+        DateTime.TryParse(value, out DateTime result);
+        return result == default(DateTime) ? default(DateTime?) : result;
     }
-    public static int ToInt(this string zipCode)
+    public static int? ObjectToInt(this object valor)
     {
-        try
-        {
-            return Convert.ToInt32(zipCode);
-        }
-        catch
-        {
-            return 0;
-        }
+        if (valor == null)
+            return null;
+
+        Int32.TryParse(valor.ToString(), out int _valor);
+        return _valor;
     }
-    public static int ToInt(this decimal valor)
+    public static int StringToInt(this string valor)
     {
-        try
-        {
-            return Convert.ToInt32(valor);
-        }
-        catch
-        {
-            return 0;
-        }
+        Int32.TryParse(valor, out int _valor);
+        return _valor;
     }
-    public static int ToInt(this decimal? valor)
+    public static int DecimalToInt(this decimal valor)
     {
-        try
-        {
-            return Convert.ToInt32(valor.Value);
-        }
-        catch
-        {
-            return 0;
-        }
+        Int32.TryParse(valor.ToString(), out int _valor);
+        return _valor;
+
+    }
+    public static int DecimalToInt(this decimal? valor)
+    {
+        Int32.TryParse(valor.Value.ToString(), out int _valor);
+        return _valor;
     }
     public static string ToUpperCase(this string str)
     {
@@ -369,10 +352,12 @@ public static class CommonExtensions
     {
         return _IsNumber(value);
     }
+
     public static bool IsNumber(this object value)
     {
         return _IsNumber(value);
     }
+
     private static bool _IsNumber(object value)
     {
         if (value.IsNotNull() && value.ToString() == "-") return false;
@@ -387,12 +372,15 @@ public static class CommonExtensions
 
         return false;
     }
+
     public static bool IsEmail(this string value)
     {
         var regex = new Regex(@"[\w-]+@([\w-]+\.)+[\w-]+");
         return regex.IsMatch(value);
     }
+
     public static bool IsDigit(this string value)
+
     {
         foreach (var item in value)
         {
@@ -403,10 +391,20 @@ public static class CommonExtensions
         return true;
 
     }
+
     public static bool IsDate(this string value)
     {
         DateTime date;
         return DateTime.TryParse(value, out date);
+    }
+
+    public static bool IsDate(this object value)
+    {
+        if (value == null)
+            return false;
+
+        DateTime date;
+        return DateTime.TryParse(value.ToString(), out date);
     }
     #endregion
 
