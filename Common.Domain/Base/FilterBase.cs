@@ -44,5 +44,12 @@ namespace Common.Domain.Base
         public string SummaryBehavior { get; set; }
 
         public string FilterKey { get; set; }
+        
+        public string Ids { get; set; }
+
+        public IEnumerable<int> GetIds()
+        {
+            return this.Ids.Split(',').Select(_ => Convert.ToInt32(_));
+        }
     }
 }
