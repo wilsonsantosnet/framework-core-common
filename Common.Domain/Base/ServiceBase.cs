@@ -25,6 +25,10 @@ namespace Common.Domain.Base
         {
             this._cacheHelper = new CacheHelper(cache);
             this._saveManyItens = new List<T>();
+
+            this._validationResult = new ValidationSpecificationResult();
+            this._validationConfirm = new ConfirmEspecificationResult();
+            this._validationWarning = new WarningSpecificationResult();
         }
 
         public virtual T AuditDefault(DomainBaseWithUserCreate entity, DomainBaseWithUserCreate entityOld)
@@ -52,21 +56,18 @@ namespace Common.Domain.Base
         public virtual void Remove(IEnumerable<T> entitys)
         {
             foreach (var entity in entitys)
-            {
                 this.Remove(entity);
-            }
         }
 
         public virtual async Task<IEnumerable<T>> Save(IEnumerable<T> entitys)
         {
-            
             foreach (var item in entitys)
             {
                 var saved = await this.Save(item);
                 this._saveManyItens.Add(saved);
             }
-            return this._saveManyItens;
 
+            return this._saveManyItens;
         }
 
         public virtual async Task<IEnumerable<T>> SavePartial(IEnumerable<T> entitys)
@@ -113,17 +114,16 @@ namespace Common.Domain.Base
 
         public virtual void AddDomainValidation(string newError)
         {
-            var newErrors = new List<string> {
-                newError
-            };
+            var newErrors = new List<string> { newError };
             this.AddDomainValidation(newErrors);
         }
+
         public virtual void AddDomainValidation(IEnumerable<string> newErrors)
         {
             var _erros = new List<string>();
+
             if (this._validationResult.IsNull())
                 this._validationResult = new ValidationSpecificationResult();
-
 
             if (this._validationResult.Errors.IsAny())
                 _erros.AddRange(this._validationResult.Errors);
@@ -137,6 +137,37 @@ namespace Common.Domain.Base
             this._validationResult.Errors = _erros;
         }
 
+
+        public virtual void AddDomainConfirm(string message)
+        {
+            this.AddDomainConfirm(message, "Confirm1");
+        }
+
+        public virtual void AddDomainConfirm(string message, string behavior)
+        {
+            var confirm = new List<ValidationConfirm> { new ValidationConfirm(message, behavior) };
+            this.AddDomainConfirm(confirm);
+        }
+
+        public virtual void AddDomainConfirm(IEnumerable<ValidationConfirm> validationConfirms)
+        {
+            var _validationConfirms = new List<ValidationConfirm>();
+
+            if (this._validationConfirm.IsNull())
+                this._validationConfirm = new ConfirmEspecificationResult();
+
+            if (this._validationConfirm.Confirms.IsAny())
+                _validationConfirms.AddRange(this._validationConfirm.Confirms);
+
+            if (validationConfirms.IsAny())
+            {
+                _validationConfirms.AddRange(validationConfirms);
+                this._validationConfirm.IsValid = false;
+            }
+
+            this._validationConfirm.Confirms = _validationConfirms;
+        }
+
         public virtual async Task<T> DomainOrchestration(T entity, T entityOld)
         {
             return await Task.Run(() =>
@@ -146,7 +177,6 @@ namespace Common.Domain.Base
                     return entity;
 
                 return entity;
-
             });
         }
 

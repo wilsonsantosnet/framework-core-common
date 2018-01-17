@@ -23,6 +23,14 @@ namespace Common.Domain.Base
             this.AttributeBehavior = value;
         }
 
+        [NotMapped]
+        public string ConfirmBehavior { get; protected set; }
+
+        public void SetConfirmBehavior(string value)
+        {
+            this.ConfirmBehavior = value;
+        }
+
         public virtual ValidationSpecificationResult GetDomainValidation(FilterBase filters = null)
         {
             return this._validationResult;

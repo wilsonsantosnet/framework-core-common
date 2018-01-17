@@ -129,7 +129,7 @@ namespace Common.Domain.Base
                 return this.MapperDomainToDto<TD>(resultDomain);
 
             await this.CommitAsync();
-            return this.MapperDomainToDto<TD>(resultDomain); ;
+            return this.MapperDomainToDto<TD>(resultDomain);
         }
 
 
@@ -141,7 +141,7 @@ namespace Common.Domain.Base
 
         private bool DomainIsValid()
         {
-            return this._serviceBase.GetDomainValidation().IsValid;
+            return this._serviceBase.GetDomainValidation().IsValid && this._serviceBase.GetDomainConfirm().IsValid;
         }
 
         protected virtual async Task<SearchResult<TD>> GetByFiltersWithCache(FilterBase filter, Func<FilterBase, PaginateResult<T>, IEnumerable<TD>> MapperDomainToDto)

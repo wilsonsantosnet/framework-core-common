@@ -9,11 +9,11 @@ namespace Common.Domain.Model
     {
         public ValidationError(string message, string verifyBehavior = null)
         {
-            this.message = message;
-            this.verifyBehavior = verifyBehavior;
+            this.Message = message;
+            this.VerifyBehavior = verifyBehavior;
         }
 
-        public string message { get; set; }
-        public string verifyBehavior { get; set; }
+        public string Message { get; set; }
+        public string VerifyBehavior { get; set; }
     }
 }
