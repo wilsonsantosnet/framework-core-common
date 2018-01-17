@@ -27,10 +27,9 @@ namespace Common.API
         {
             var valueProviderResult = bindingContext.ValueProvider.GetValue(bindingContext.ModelName);
             var value = valueProviderResult.FirstValue;
-            DateTime outDate;
 
             //var parsed = DateTime.TryParse(value, CultureInfo.GetCultureInfo("pt-BR").DateTimeFormat, DateTimeStyles.None, out outDate);
-            var parsed = DateTime.TryParse(value, new CultureInfo("pt-BR").DateTimeFormat, DateTimeStyles.None, out outDate);
+            var parsed = DateTime.TryParse(value, new CultureInfo("pt-BR").DateTimeFormat, DateTimeStyles.None, out DateTime outDate);
 
             var result = ModelBindingResult.Success(outDate);
             if (!parsed)
