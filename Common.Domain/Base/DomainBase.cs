@@ -18,11 +18,6 @@ namespace Common.Domain.Base
         [NotMapped]
         public string AttributeBehavior { get; protected set; }
 
-        public void SetAttributeBehavior(string value) {
-
-            this.AttributeBehavior = value;
-        }
-
         [NotMapped]
         public string ConfirmBehavior { get; protected set; }
 
@@ -30,6 +25,14 @@ namespace Common.Domain.Base
         {
             this.ConfirmBehavior = value;
         }
+
+        public void SetAttributeBehavior(string value)
+        {
+            this.AttributeBehavior = value;
+        }
+
+
+
 
         public virtual ValidationSpecificationResult GetDomainValidation(FilterBase filters = null)
         {
@@ -42,6 +45,20 @@ namespace Common.Domain.Base
         public virtual WarningSpecificationResult GetDomainWarning(FilterBase filters = null)
         {
             return this._validationWarning;
+        }
+
+
+        public virtual void SetDomainValidation(ValidationSpecificationResult value)
+        {
+            this._validationResult = value;
+        }
+        public virtual void SetDomainConfirm(ConfirmEspecificationResult value)
+        {
+            this._validationConfirm= value;
+        }
+        public virtual void SetDomainWarning(WarningSpecificationResult value)
+        {
+            this._validationWarning = value;
         }
 
     }

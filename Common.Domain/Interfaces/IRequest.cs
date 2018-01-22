@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Common.Domain
 {
@@ -9,8 +6,11 @@ namespace Common.Domain
     {
         void SetAddress(string address);
         void AddHeaders(string item);
+        void AddHeaders(string key, string value);
         void SetBearerToken(string accessToken);
-        TResult Get<TResult>(string resource, NameValueCollection queryStringParameters = null);
+        TResult Get<TResult>(string resource, IDictionary<string, object> queryStringParameters = null);
         TResult Post<TResult, TModel>(string resource, TModel model);
+        TResult Path<TResult, TModel>(string resource, TModel model);
+        string GetAccessToken(string AuthorityEndPoint, string clientId, string secret, string scope = null);
     }
 }
