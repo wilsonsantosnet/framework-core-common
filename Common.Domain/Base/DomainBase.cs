@@ -31,9 +31,6 @@ namespace Common.Domain.Base
             this.AttributeBehavior = value;
         }
 
-
-
-
         public virtual ValidationSpecificationResult GetDomainValidation(FilterBase filters = null)
         {
             return this._validationResult;
@@ -46,7 +43,6 @@ namespace Common.Domain.Base
         {
             return this._validationWarning;
         }
-
 
         public virtual void SetDomainValidation(ValidationSpecificationResult value)
         {

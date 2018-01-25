@@ -54,7 +54,7 @@ namespace Common.Domain.Base
         public virtual async Task<TD> GetOne(FilterBase filters)
         {
             var resultDomain = await this._serviceBase.GetOne(filters as TF);
-            var resultDto = this.MapperDomainToDto<TD>(resultDomain);
+            var resultDto = this.MapperDomainToGetOne<TD>(filters, resultDomain);
             return resultDto;
         }
 
@@ -76,10 +76,10 @@ namespace Common.Domain.Base
 
             var resultDomain = await this._serviceBase.Save(entitysChanged);
             if (!DomainIsValid())
-                return  this.MapperDomainToDto<TD>(resultDomain);
+                return this.MapperDomainToDto<TD>(resultDomain);
 
             await this.CommitAsync();
-            return  this.MapperDomainToDto<TD>(resultDomain);
+            return this.MapperDomainToDto<TD>(resultDomain);
         }
 
         public virtual async Task<IEnumerable<TD>> SavePartial(IEnumerable<TD> entitys)
@@ -113,7 +113,7 @@ namespace Common.Domain.Base
 
             await this.CommitAsync();
 
-            return  this.MapperDomainToDto<TD>(resultDomain);
+            return this.MapperDomainToDto<TD>(resultDomain);
 
         }
 
@@ -188,7 +188,7 @@ namespace Common.Domain.Base
                 return result;
             });
         }
-       
+
 
         protected async virtual Task<IEnumerable<T>> MapperDtoToDomain<TDS>(IEnumerable<TDS> dtos)
         {
@@ -202,6 +202,12 @@ namespace Common.Domain.Base
         protected virtual IEnumerable<TDS> MapperDomainToResult<TDS>(FilterBase filter, PaginateResult<T> dataList)
         {
             var result = filter.IsOnlySummary ? null : AutoMapper.Mapper.Map<IEnumerable<T>, IEnumerable<TDS>>(dataList.ResultPaginatedData);
+            return result;
+        }
+
+        protected virtual TDS MapperDomainToGetOne<TDS>(FilterBase filter, T model) where TDS : class
+        {
+            var result = AutoMapper.Mapper.Map<T, TDS>(model);
             return result;
         }
 
