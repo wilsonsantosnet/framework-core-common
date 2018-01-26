@@ -44,6 +44,16 @@ namespace Common.Domain.Base
             return this._validationWarning;
         }
 
+        public virtual void SetDomainError(string error)
+        {
+            this.SetDomainValidation(new ValidationSpecificationResult
+            {
+                IsValid = false,
+                Message = error,
+                Errors = new List<string> { error },
+            });
+        }
+
         public virtual void SetDomainValidation(ValidationSpecificationResult value)
         {
             this._validationResult = value;

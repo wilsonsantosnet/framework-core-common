@@ -54,7 +54,7 @@ namespace Common.Domain.Base
         public virtual async Task<TD> GetOne(FilterBase filters)
         {
             var resultDomain = await this._serviceBase.GetOne(filters as TF);
-            var resultDto = this.MapperDomainToGetOne<TD>(filters, resultDomain);
+            var resultDto = this.MapperDomainToDto<TD>(filters, resultDomain);
             return resultDto;
         }
 
@@ -205,22 +205,23 @@ namespace Common.Domain.Base
             return result;
         }
 
-        protected virtual TDS MapperDomainToGetOne<TDS>(FilterBase filter, T model) where TDS : class
-        {
-            var result = AutoMapper.Mapper.Map<T, TDS>(model);
-            return result;
-        }
-
         protected abstract Task<T> AlterDomainWithDto<TDS>(TDS dto) where TDS : class;
 
-
         protected virtual IEnumerable<TDS> MapperDomainToDto<TDS>(IEnumerable<T> models)
+        {
+            return this.MapperDomainToDto<TDS>(new FilterBase(), models);
+        }
+        protected virtual IEnumerable<TDS> MapperDomainToDto<TDS>(FilterBase filter, IEnumerable<T> models)
         {
             var result = AutoMapper.Mapper.Map<IEnumerable<T>, IEnumerable<TDS>>(models);
             return result;
         }
 
         protected virtual TDS MapperDomainToDto<TDS>(T model) where TDS : class
+        {
+            return this.MapperDomainToDto<TDS>(model);
+        }
+        protected virtual TDS MapperDomainToDto<TDS>(FilterBase filter, T model) where TDS : class
         {
             var result = AutoMapper.Mapper.Map<T, TDS>(model);
             return result;

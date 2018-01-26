@@ -21,7 +21,7 @@ namespace Common.API
         public ConfirmEspecificationResult Confirm { get; set; }
 
     }
-    public class HttpResult<T> : HttpResult where T : class
+    public class HttpResult<T> : HttpResult
     {
         private ILogger _logger;
         public HttpResult(ILogger logger)
@@ -136,16 +136,8 @@ namespace Common.API
             };
 
         }
-        public ObjectResult ReturnCustomResponse(IEnumerable<T> searchResult, FilterBase filter = null)
-        {
-            this.Success(searchResult);
-            return new ObjectResult(this)
-            {
-                StatusCode = (int)this.StatusCode
-            };
 
-        }
-        public ObjectResult ReturnCustomResponse(T OneResult, FilterBase filter = null)
+        public ObjectResult ReturnCustomResponse(T OneResult)
         {
 
             this.Success(OneResult);
@@ -155,7 +147,21 @@ namespace Common.API
             };
 
         }
-        public ObjectResult ReturnCustomResponse(IApplicationServiceBase<T> _app, SearchResult<T> searchResult, FilterBase filter)
+        public ObjectResult ReturnCustomResponse(IEnumerable<T> searchResult)
+        {
+            return this.ReturnCustomResponse(searchResult, null);
+        }
+        public ObjectResult ReturnCustomResponse(IEnumerable<T> searchResult, FilterBase filter)
+        {
+            this.Success(searchResult);
+            return new ObjectResult(this)
+            {
+                StatusCode = (int)this.StatusCode
+            };
+
+        }
+
+        public ObjectResult ReturnCustomResponse(IApplicationServiceBase _app, SearchResult<T> searchResult, FilterBase filter)
         {
             this.Summary = searchResult.Summary;
             this.Warning = _app.GetDomainWarning(filter);
@@ -170,7 +176,7 @@ namespace Common.API
 
 
         }
-        public ObjectResult ReturnCustomResponse(IApplicationServiceBase<T> _app, IEnumerable<T> returnModel)
+        public ObjectResult ReturnCustomResponse(IApplicationServiceBase _app, IEnumerable<T> returnModel)
         {
             foreach (var item in returnModel)
             {
@@ -186,7 +192,11 @@ namespace Common.API
             };
 
         }
-        public ObjectResult ReturnCustomResponse(IApplicationServiceBase<T> _app, T returnModel = null)
+        public ObjectResult ReturnCustomResponse(IApplicationServiceBase _app)
+        {
+            return this.ReturnCustomResponse(_app, null);
+        }
+        public ObjectResult ReturnCustomResponse(IApplicationServiceBase _app, T returnModel)
         {
             this.Warning = _app.GetDomainWarning();
             this.Confirm = _app.GetDomainConfirm();

@@ -24,6 +24,7 @@ namespace Common.Payment
             this._request = request;
             this._request.SetAddress(this._endpoint);
         }
+
         public dynamic ExecutePaymentCreditCardDefault(string email, dynamic credit_card, decimal total, string description)
         {
             return this.ExecutePayment(new
@@ -70,8 +71,10 @@ namespace Common.Payment
                 }
             });
         }
+
         public dynamic ExecutePayment(dynamic data)
         {
+
             var result = this._request.Post<dynamic, dynamic>(this._transaction_resource, data);
             return result;
         }

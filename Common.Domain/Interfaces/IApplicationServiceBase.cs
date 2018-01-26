@@ -7,7 +7,15 @@ using System.Threading.Tasks;
 
 namespace Common.Domain.Interfaces
 {
-    public interface IApplicationServiceBase<T>
+    public interface IApplicationServiceBase
+    {
+        WarningSpecificationResult GetDomainWarning(FilterBase filters = null);
+
+        ConfirmEspecificationResult GetDomainConfirm(FilterBase filters = null);
+
+        ValidationSpecificationResult GetDomainValidation(FilterBase filters = null);
+    }
+    public interface IApplicationServiceBase<T> : IApplicationServiceBase
     {
         Task<T> GetOne(FilterBase filters);
 
@@ -23,11 +31,7 @@ namespace Common.Domain.Interfaces
 
         Task<int> Remove(T entity);
 
-        WarningSpecificationResult GetDomainWarning(FilterBase filters = null);
 
-        ConfirmEspecificationResult GetDomainConfirm(FilterBase filters = null);
-
-        ValidationSpecificationResult GetDomainValidation(FilterBase filters = null);
 
 
     }
