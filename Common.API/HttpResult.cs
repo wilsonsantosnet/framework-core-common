@@ -1,4 +1,4 @@
-﻿using Common.Domain.CustomExceptions;
+using Common.Domain.CustomExceptions;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -21,7 +21,7 @@ namespace Common.API
         public ConfirmEspecificationResult Confirm { get; set; }
 
     }
-    public class HttpResult<T> : HttpResult
+    public class HttpResult<T> : HttpResult 
     {
         private ILogger _logger;
         public HttpResult(ILogger logger)
@@ -136,8 +136,16 @@ namespace Common.API
             };
 
         }
+        public ObjectResult ReturnCustomResponse(IEnumerable<T> searchResult, FilterBase filter = null)
+        {
+            this.Success(searchResult);
+            return new ObjectResult(this)
+            {
+                StatusCode = (int)this.StatusCode
+            };
 
-        public ObjectResult ReturnCustomResponse(T OneResult)
+        }
+        public ObjectResult ReturnCustomResponse(T OneResult, FilterBase filter = null)
         {
 
             this.Success(OneResult);
@@ -147,20 +155,6 @@ namespace Common.API
             };
 
         }
-        public ObjectResult ReturnCustomResponse(IEnumerable<T> searchResult)
-        {
-            return this.ReturnCustomResponse(searchResult, null);
-        }
-        public ObjectResult ReturnCustomResponse(IEnumerable<T> searchResult, FilterBase filter)
-        {
-            this.Success(searchResult);
-            return new ObjectResult(this)
-            {
-                StatusCode = (int)this.StatusCode
-            };
-
-        }
-
         public ObjectResult ReturnCustomResponse(IApplicationServiceBase _app, SearchResult<T> searchResult, FilterBase filter)
         {
             this.Summary = searchResult.Summary;
