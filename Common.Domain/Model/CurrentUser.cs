@@ -32,9 +32,13 @@ namespace Common.Domain.Model
 
         public bool IsTenant()
         {
-            return this._claims
-                .Where(_ => _.Key.ToLower() == "role")
-                .Where(_ => _.Value.ToString() == "tenant").IsAny();
+            if (this._claims.IsNotNull())
+            {
+                return this._claims
+                    .Where(_ => _.Key.ToLower() == "role")
+                    .Where(_ => _.Value.ToString() == "tenant").IsAny();
+            }
+            return false;
         }
 
         public TS GetTenantId<TS>()
