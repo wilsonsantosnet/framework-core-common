@@ -219,7 +219,7 @@ namespace Common.Domain.Base
 
         protected virtual TDS MapperDomainToDto<TDS>(T model) where TDS : class
         {
-            return this.MapperDomainToDto<TDS>(model);
+            return this.MapperDomainToDto<TDS>(new FilterBase(), model);
         }
         protected virtual TDS MapperDomainToDto<TDS>(FilterBase filter, T model) where TDS : class
         {
