@@ -6,6 +6,8 @@ using System.Xml.Linq;
 using System.Linq;
 using System.Dynamic;
 using System.Collections.Generic;
+using Microsoft.Extensions.Options;
+using Common.Domain.Base;
 
 namespace Common.Payment
 {
@@ -13,8 +15,7 @@ namespace Common.Payment
     {
 
         private string _transaction_resource;
-
-        public PaymentTransaction(IRequest request, string transactionId = null) : base(request)
+        public PaymentTransaction(IRequest request, ConfigPaymentBase config, string transactionId = null) : base(request, config)
         {
             if (!string.IsNullOrEmpty(transactionId))
                 this._transaction_resource = $"payments/payment/{transactionId}";
@@ -23,7 +24,11 @@ namespace Common.Payment
 
             this._request = request;
             this._request.SetAddress(this._endpoint);
+
         }
+        public PaymentTransaction(IRequest request, IOptions<ConfigPaymentBase> config, string transactionId = null) :
+            this(request, config.Value, transactionId)
+        { }
 
         public dynamic ExecutePaymentCreditCardDefault(string email, dynamic credit_card, decimal total, string description)
         {

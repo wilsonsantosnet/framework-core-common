@@ -21,7 +21,7 @@ namespace Common.API
         public ConfirmEspecificationResult Confirm { get; set; }
 
     }
-    public class HttpResult<T> : HttpResult 
+    public class HttpResult<T> : HttpResult
     {
         private ILogger _logger;
         public HttpResult(ILogger logger)
@@ -68,9 +68,9 @@ namespace Common.API
             return this;
         }
 
-        public HttpResult<T> Error(string erro, ErrorMap errorMap = null)
+        public HttpResult<T> Error(string erro, ErrorMap errorMap)
         {
-            var _errorMap = errorMap.IsNotNull() ? errorMap : new ErrorMap();
+            var _errorMap = errorMap;
             var erroTraduction = _errorMap.GetTraduction(erro);
 
             var errorFinal = erroTraduction ?? erro;
@@ -265,13 +265,13 @@ namespace Common.API
             if (ex.InnerException.IsNotNull())
             {
                 if (ex.InnerException.InnerException.IsNotNull())
-                    return this.Error(string.Format("[{0}] - InnerException: {1}", appName, ex.InnerException.InnerException.Message, errorMap));
+                    return this.Error(string.Format("[{0}] - InnerException: {1}", appName, ex.InnerException.InnerException.Message), errorMap);
                 else
-                    return this.Error(string.Format("[{0}] - InnerException: {1}", appName, ex.InnerException.Message, errorMap));
+                    return this.Error(string.Format("[{0}] - InnerException: {1}", appName, ex.InnerException.Message), errorMap);
             }
             else
             {
-                return this.Error(string.Format("[{0}] - Exception: {1}", appName, ex.Message));
+                return this.Error(string.Format("[{0}] - Exception: {1}", appName, ex.Message), errorMap);
             }
         }
 

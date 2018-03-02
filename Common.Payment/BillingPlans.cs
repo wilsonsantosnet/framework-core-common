@@ -6,6 +6,8 @@ using System.Xml.Linq;
 using System.Linq;
 using System.Dynamic;
 using System.Collections.Generic;
+using Microsoft.Extensions.Options;
+using Common.Domain.Base;
 
 namespace Common.Payment
 {
@@ -14,13 +16,16 @@ namespace Common.Payment
 
         private string _billing_resource;
 
-        public BillingPlans(IRequest request,string planId = null):base(request)
+        public BillingPlans(IRequest request, ConfigPaymentBase config, string planId = null) : base(request, config)
         {
             if (!string.IsNullOrEmpty(planId))
                 this._billing_resource = $"payments/billing-plans/{planId}";
             else
                 this._billing_resource = "payments/billing-plans";
+
         }
+        public BillingPlans(IRequest request, IOptions<ConfigPaymentBase> config, string planId = null)
+            : this(request, config.Value) { }
 
         public dynamic Create(dynamic data)
         {
@@ -36,7 +41,7 @@ namespace Common.Payment
 
         public dynamic Active(dynamic data)
         {
-            var result = this._request.Path<dynamic,dynamic>(this._billing_resource, data);
+            var result = this._request.Path<dynamic, dynamic>(this._billing_resource, data);
             return result;
         }
 

@@ -6,6 +6,8 @@ using System.Xml.Linq;
 using System.Linq;
 using System.Dynamic;
 using System.Collections.Generic;
+using Microsoft.Extensions.Options;
+using Common.Domain.Base;
 
 namespace Common.Payment
 {
@@ -13,10 +15,13 @@ namespace Common.Payment
     {
 
         private string _billing_resource;
-
-        public BillingAgreements(IRequest request):base(request)
+        public BillingAgreements(IRequest request, ConfigPaymentBase config) : base(request, config)
         {
             this._billing_resource = "payments/billing-agreements";
+        }
+        public BillingAgreements(IRequest request, IOptions<ConfigPaymentBase> config) : this(request, config.Value)
+        {
+            
         }
 
         public dynamic Create(dynamic data)
