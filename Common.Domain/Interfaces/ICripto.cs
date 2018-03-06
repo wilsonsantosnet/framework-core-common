@@ -10,9 +10,9 @@ namespace Common.Domain.Interfaces
     public interface ICripto
     {
 
-        string Encrypt(string value, TypeCripto type);
+        string Encrypt(string value, TypeCripto type, string salt);
 
-        string Salt { get; }
+        //string Salt { get; }
 
     }
 }

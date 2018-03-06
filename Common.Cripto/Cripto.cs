@@ -11,31 +11,30 @@ namespace Common.Cripto
 
     public class Cripto : ICripto
     {
-        public string Salt { get { return "CNAHash"; } }
-
-        public string Encrypt(string value, TypeCripto type)
+        public string Encrypt(string value, TypeCripto type, string salt)
         {
             if (type == TypeCripto.Hash128)
-                return ComputeHash128(value);
+                return ComputeHash128(value, salt);
 
             if (type == TypeCripto.Hash512)
-                return ComputeHash512(value);
+                return ComputeHash512(value, salt);
 
             if (type == TypeCripto.MD5Hash)
-                return EncryptMD5HashString(value, Salt);
+                return EncryptMD5HashString(value, salt);
 
             return string.Empty;
         }
 
-        private string ComputeHash128(string value)
+        private string ComputeHash128(string value, string salt)
         {
             var encrypt = true;
             byte[] toEncryptorDecryptArray = null;
             ICryptoTransform cTransform = null;
 
-            if (this.Salt.IsNullOrEmpaty())
+            if (salt.IsNullOrEmpaty())
                 throw new InvalidOperationException("Salt not found");
-            byte[] keyArrays = MD5Hash(this.Salt);
+
+            byte[] keyArrays = MD5Hash(salt);
 
             var resultsArray = TripleDESCrypto(value, encrypt, toEncryptorDecryptArray, cTransform, keyArrays);
             if (encrypt)
@@ -98,9 +97,9 @@ namespace Common.Cripto
             }
         }
 
-        private string ComputeHash512(string value)
+        private string ComputeHash512(string value, string salt)
         {
-            if (this.Salt.IsNullOrEmpaty())
+            if (salt.IsNullOrEmpaty())
                 throw new InvalidOperationException("Salt not found");
 
             using (var SHA512 = System.Security.Cryptography.SHA512.Create())
