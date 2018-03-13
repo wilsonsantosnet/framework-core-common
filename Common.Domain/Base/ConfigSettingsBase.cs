@@ -18,6 +18,10 @@ namespace Common.Domain.Base
 
         public string PostLogoutRedirectUris { get; set; }
 
+        public string AutoRegister { get; set; }
+
+        public string Salt { get; set; }
+
 
     }
 }

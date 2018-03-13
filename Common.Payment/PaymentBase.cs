@@ -14,6 +14,8 @@ namespace Common.Payment
         protected string _client_Id;
         protected string _secret;
         protected IRequest _request;
+        protected string _return_url;
+        protected string _cancel_url;
 
         public PaymentBase(IRequest request, ConfigPaymentBase config)
         {
@@ -24,6 +26,9 @@ namespace Common.Payment
             this._request = request;
             this._request.SetAddress(this._endpoint);
             this._request.AddHeaders("Content-Type", "application/json");
+            this._return_url = config.ReturnUrl;
+            this._cancel_url = config.CancelUrl;
+
             this._request.SetBearerToken(this._request.GetAccessToken(this._authority_endpoint, this._client_Id, this._secret));
         }
 

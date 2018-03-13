@@ -30,6 +30,17 @@ namespace Common.Domain.Model
             return this._claims;
         }
 
+        public bool IsAdmin()
+        {
+            if (this._claims.IsNotNull())
+            {
+                return this._claims
+                    .Where(_ => _.Key.ToLower() == "role")
+                    .Where(_ => _.Value.ToString() == "admin").IsAny();
+            }
+            return false;
+        }
+
         public bool IsTenant()
         {
             if (this._claims.IsNotNull())
@@ -40,6 +51,51 @@ namespace Common.Domain.Model
             }
             return false;
         }
+
+        public bool IsTypeTeam()
+        {
+            if (this._claims.IsNotNull())
+            {
+                return this._claims
+                    .Where(_ => _.Key.ToLower() == "typerole")
+                    .Where(_ => _.Value.ToString() == "Team").IsAny();
+            }
+            return false;
+        }
+
+        public bool IsTypeFollower()
+        {
+            if (this._claims.IsNotNull())
+            {
+                return this._claims
+                    .Where(_ => _.Key.ToLower() == "typerole")
+                    .Where(_ => _.Value.ToString() == "Follower").IsAny();
+            }
+            return false;
+        }
+
+        public bool IsTypeCompany()
+        {
+            if (this._claims.IsNotNull())
+            {
+                return this._claims
+                    .Where(_ => _.Key.ToLower() == "typerole")
+                    .Where(_ => _.Value.ToString() == "Company").IsAny();
+            }
+            return false;
+        }
+
+        public bool IsTypeStardart()
+        {
+            if (this._claims.IsNotNull())
+            {
+                return this._claims
+                    .Where(_ => _.Key.ToLower() == "typerole")
+                    .Where(_ => _.Value.ToString() == "Standart").IsAny();
+            }
+            return false;
+        }
+
 
         public TS GetTenantId<TS>()
         {
@@ -84,6 +140,19 @@ namespace Common.Domain.Model
             return default(TS);
         }
 
+        public TS GetTenantClientId<TS>()
+        {
+            if (this.IsTypeFollower())
+            {
+                var clientId = this._claims
+                    .Where(_ => _.Key.ToLower() == "clientid")
+                    .SingleOrDefault()
+                    .Value;
+
+                return (TS)Convert.ChangeType(clientId, typeof(TS));
+            }
+            return default(TS);
+        }
 
 
     }

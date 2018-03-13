@@ -2,53 +2,113 @@
 using Common.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace Common.Cripto
 {
-
     public class Cripto : ICripto
     {
-        public string Encrypt(string value, TypeCripto type, string salt)
+        public string ComputeHashMd5(string value, string salt)
         {
-            if (type == TypeCripto.Hash128)
-                return ComputeHash128(value, salt);
-
-            if (type == TypeCripto.Hash512)
-                return ComputeHash512(value, salt);
-
-            if (type == TypeCripto.MD5Hash)
-                return EncryptMD5HashString(value, salt);
-
-            return string.Empty;
-        }
-
-        private string ComputeHash128(string value, string salt)
-        {
-            var encrypt = true;
-            byte[] toEncryptorDecryptArray = null;
-            ICryptoTransform cTransform = null;
-
             if (salt.IsNullOrEmpaty())
                 throw new InvalidOperationException("Salt not found");
 
-            byte[] keyArrays = MD5Hash(salt);
+            if (string.IsNullOrEmpty(value))
+                return string.Empty;
 
-            var resultsArray = TripleDESCrypto(value, encrypt, toEncryptorDecryptArray, cTransform, keyArrays);
-            if (encrypt)
-                return Convert.ToBase64String(resultsArray, 0, resultsArray.Length);
+            using (var tripleDES = TripleDES.Create())
+            {
+                byte[] Results;
+                UTF8Encoding UTF8 = new UTF8Encoding();
+                MD5 MD5 = MD5.Create();
 
-            return UTF8Encoding.UTF8.GetString(resultsArray);
+                byte[] TDESKey = MD5.ComputeHash(UTF8.GetBytes(salt));
+
+                if (TDESKey.Length == 16)
+                {
+                    byte[] keyTemp = new byte[24];
+                    Buffer.BlockCopy(TDESKey, 0, keyTemp, 0, TDESKey.Length);
+                    Buffer.BlockCopy(TDESKey, 0, keyTemp, TDESKey.Length, 8);
+                    TDESKey = keyTemp;
+                }
+
+                tripleDES.Key = TDESKey;
+                tripleDES.Mode = CipherMode.ECB;
+                tripleDES.Padding = PaddingMode.PKCS7;
+
+                byte[] DataToEncrypt = UTF8.GetBytes(value);
+
+                ICryptoTransform Encryptor = tripleDES.CreateEncryptor();
+                Results = Encryptor.TransformFinalBlock(DataToEncrypt, 0, DataToEncrypt.Length);
+
+                return Convert.ToBase64String(Results);
+            }
         }
 
-        private static byte[] CreateHash(string unHashed)
+        public string Encrypt(string text, string keyString)
         {
-            var md5Hasing = new System.Security.Cryptography.HMACMD5();
-            var data = UTF8Encoding.UTF8.GetBytes(unHashed);
-            data = md5Hasing.ComputeHash(data);
-            return data;
+            var key = Encoding.UTF8.GetBytes(keyString);
+
+            using (var aesAlg = Aes.Create())
+            {
+                using (var encryptor = aesAlg.CreateEncryptor(key, aesAlg.IV))
+                {
+                    using (var msEncrypt = new MemoryStream())
+                    {
+                        using (var csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+                        using (var swEncrypt = new StreamWriter(csEncrypt))
+                        {
+                            swEncrypt.Write(text);
+                        }
+
+                        var iv = aesAlg.IV;
+
+                        var decryptedContent = msEncrypt.ToArray();
+
+                        var result = new byte[iv.Length + decryptedContent.Length];
+
+                        Buffer.BlockCopy(iv, 0, result, 0, iv.Length);
+                        Buffer.BlockCopy(decryptedContent, 0, result, iv.Length, decryptedContent.Length);
+
+                        return Convert.ToBase64String(result);
+                    }
+                }
+            }
+        }
+
+        public string Decrypt(string cipherText, string keyString)
+        {
+            var fullCipher = Convert.FromBase64String(cipherText.Replace(" ", "+"));
+
+            var iv = new byte[16];
+            var cipher = new byte[fullCipher.Length - iv.Length];
+
+            Buffer.BlockCopy(fullCipher, 0, iv, 0, iv.Length);
+            Buffer.BlockCopy(fullCipher, iv.Length, cipher, 0, fullCipher.Length - iv.Length);
+            var key = Encoding.UTF8.GetBytes(keyString);
+
+            using (var aesAlg = Aes.Create())
+            {
+                using (var decryptor = aesAlg.CreateDecryptor(key, iv))
+                {
+                    string result;
+                    using (var msDecrypt = new MemoryStream(cipher))
+                    {
+                        using (var csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+                        {
+                            using (var srDecrypt = new StreamReader(csDecrypt))
+                            {
+                                result = srDecrypt.ReadToEnd();
+                            }
+                        }
+                    }
+
+                    return result;
+                }
+            }
         }
 
         private static byte[] MD5Hash(string input)
@@ -71,81 +131,5 @@ namespace Common.Cripto
                 return result;
             }
         }
-
-        private byte[] TripleDESCrypto(string value, bool encrypt, byte[] toEncryptorDecryptArray, ICryptoTransform cTransform, byte[] keyArrays)
-        {
-            using (var tdes = TripleDES.Create())
-            {
-                tdes.Key = keyArrays;
-                tdes.Mode = CipherMode.ECB;
-                tdes.Padding = PaddingMode.PKCS7;
-
-                if (encrypt == true)
-                {
-                    toEncryptorDecryptArray = UTF8Encoding.UTF8.GetBytes(value);
-                    cTransform = tdes.CreateEncryptor();
-                }
-                else
-                {
-                    toEncryptorDecryptArray = Convert.FromBase64String(value.Replace(' ', '+'));
-                    cTransform = tdes.CreateDecryptor();
-                }
-
-                byte[] resultsArray = cTransform.TransformFinalBlock(toEncryptorDecryptArray, 0, toEncryptorDecryptArray.Length);
-
-                return resultsArray;
-            }
-        }
-
-        private string ComputeHash512(string value, string salt)
-        {
-            if (salt.IsNullOrEmpaty())
-                throw new InvalidOperationException("Salt not found");
-
-            using (var SHA512 = System.Security.Cryptography.SHA512.Create())
-            {
-                var result = SHA512.ComputeHash(UTF8Encoding.UTF8.GetBytes(value));
-                return Convert.ToBase64String(result);
-            }
-        }
-
-        public static string EncryptMD5HashString(string Message, string Passphrase)
-        {
-            if (string.IsNullOrEmpty(Message))
-            {
-                return string.Empty;
-            }
-            else
-            {
-                using (var tripleDES = TripleDES.Create())
-                {
-                    byte[] Results;
-                    UTF8Encoding UTF8 = new UTF8Encoding();
-                    MD5 MD5 = MD5.Create();
-
-                    byte[] TDESKey = MD5.ComputeHash(UTF8.GetBytes(Passphrase));
-
-                    if (TDESKey.Length == 16)
-                    {
-                        byte[] keyTemp = new byte[24];
-                        Buffer.BlockCopy(TDESKey, 0, keyTemp, 0, TDESKey.Length);
-                        Buffer.BlockCopy(TDESKey, 0, keyTemp, TDESKey.Length, 8);
-                        TDESKey = keyTemp;
-                    }
-
-                    tripleDES.Key = TDESKey;
-                    tripleDES.Mode = CipherMode.ECB;
-                    tripleDES.Padding = PaddingMode.PKCS7;
-
-                    byte[] DataToEncrypt = UTF8.GetBytes(Message);
-
-                    ICryptoTransform Encryptor = tripleDES.CreateEncryptor();
-                    Results = Encryptor.TransformFinalBlock(DataToEncrypt, 0, DataToEncrypt.Length);
-
-                    return Convert.ToBase64String(Results);
-                }
-            }
-        }
     }
-
 }
