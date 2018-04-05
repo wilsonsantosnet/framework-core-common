@@ -1,4 +1,4 @@
-﻿using Common.Domain.Enums;
+using Common.Domain.Enums;
 using Common.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -9,8 +9,10 @@ using System.Text;
 
 namespace Common.Cripto
 {
+
     public class Cripto : ICripto
     {
+
         public string ComputeHashMd5(string value, string salt)
         {
             if (salt.IsNullOrEmpaty())
@@ -81,7 +83,7 @@ namespace Common.Cripto
 
         public string Decrypt(string cipherText, string keyString)
         {
-            var fullCipher = Convert.FromBase64String(cipherText.Replace(" ", "+"));
+            var fullCipher = Convert.FromBase64String(cipherText.Replace(" ","+"));
 
             var iv = new byte[16];
             var cipher = new byte[fullCipher.Length - iv.Length];
