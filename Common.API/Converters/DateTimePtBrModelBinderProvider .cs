@@ -16,6 +16,9 @@ namespace Common.API
 
             if (!context.Metadata.IsComplexType && context.Metadata.ModelType == typeof(DateTime))
                 return new DateTimePtBrBinder();
+                
+            if (!context.Metadata.IsComplexType && context.Metadata.ModelType == typeof(DateTime?))
+                return new DateTimePtBrBinder();
 
             return null;
         }
