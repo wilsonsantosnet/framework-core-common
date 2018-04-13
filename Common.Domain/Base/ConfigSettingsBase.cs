@@ -1,7 +1,4 @@
-﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Common.Domain.Base
 {
@@ -12,11 +9,11 @@ namespace Common.Domain.Base
 
         public string AuthorityEndPoint { get; set; }
 
-        public string ClientAuthorityEndPoint { get; set; }
+        public IEnumerable<string> ClientAuthorityEndPoint { get; set; }
 
-        public string RedirectUris { get; set; }
+        public IEnumerable<string> RedirectUris { get; set; }
 
-        public string PostLogoutRedirectUris { get; set; }
+        public IEnumerable<string> PostLogoutRedirectUris { get; set; }
 
         public string AutoRegister { get; set; }
 
