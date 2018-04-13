@@ -18,6 +18,8 @@ namespace Common.Domain.Base
         public string AutoRegister { get; set; }
 
         public string Salt { get; set; }
+        
+        public string FilePath { get; set; }
 
 
     }
