@@ -20,6 +20,8 @@ namespace Common.Domain.Base
         public string Salt { get; set; }
         
         public string FilePath { get; set; }
+        
+        public string ApiEndPoint { get; set; }
 
 
     }
